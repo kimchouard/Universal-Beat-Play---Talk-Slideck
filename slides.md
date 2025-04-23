@@ -460,6 +460,43 @@ transition: slide-left
 ---
 layout: center
 class: text-center
+transition: slide-up
+---
+
+# Plus de détails ici 👇
+
+<div class="flex flex-col items-center max-w-lg mx-auto">
+  <div class="relative">
+    <!-- Thumbnail YouTube -->
+    <a href="https://www.youtube.com/watch?v=PGvhniTxpu4" target="_blank" class="group">
+      <img src="/images/appjs-2024.jpg" class="w-full rounded-xl transition-transform duration-300 group-hover:scale-105" />
+      <div class="mt-2 flex items-center justify-center gap-2 text-sm opacity-75 group-hover:opacity-100 group-hover:text-red">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+        Voir sur YouTube
+      </div>
+    </a>
+    <!-- Flèche et teaser -->
+    <div v-click class="relative mt-8">
+      <!-- Teaser -->
+      <div class="p-4 bg-[#1B1B1F] rounded-xl relative overflow-none">
+        <!-- Flèche courbe -->
+        <svg class="absolute -top-22 -left-4 w-24 h-24 text-gray-700 opacity-25 rotate-270" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M4 12h10M4 12l4-4m-4 4l4 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="text-sm text-left opacity-75">
+          <strong>Kim in 2024:</strong> "React Native is 💩 for audio!"<br/>
+          <strong>Kim in 2025:</strong> <a href="https://appjs.co/speakers/kim-chouard" target="_blank" class="text-red hover:underline">React Native + 🎵 = ❤️</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+---
+layout: center
+class: text-center
 transition: slide-left
 ---
 
