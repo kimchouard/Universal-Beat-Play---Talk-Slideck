@@ -391,11 +391,35 @@ layout: default
 transition: slide-left
 ---
 
-# Construire un jeu avec React Native
+# Construire un jeux avec React Native
 
 <div class="grid grid-cols-2 gap-8">
-  <div class="flex flex-col">
-    <div class="text-xl font-bold mb-4">L'Ecosystem React Native</div>
+  <div v-click class="relative flex-1 h-[500px] h-full">
+    <!-- Desktop Demo -->
+    <div class="absolute inset-0 flex items-center justify-center h-full">
+      <div class="relative w-[600px]">
+        <img src="/images/mbp-14_chrome.png" class="w-full" />
+        <div class="absolute top-[13.5%] left-[10.4%] right-[9.8%] bottom-[11%] overflow-hidden">
+          <video autoplay loop="false" muted playsinline class="w-full h-full object-cover">
+            <source src="/images/op-demo-desktop.mp4" type="video/mp4">
+            <img src="/images/op-demo-desktop.gif" alt="Desktop Demo" class="w-full h-full object-cover">
+          </video>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Demo -->
+    <div class="absolute top-[51%] -right-[5%] w-[250px] z-10">
+      <img src="/images/iphone-landscape.png" class="w-full z-10" />
+      <div class="absolute top-[4%] left-[2%] right-[2%] bottom-[4%] overflow-hidden rounded-[15px] z-0">
+        <video autoplay loop="false" muted playsinline class="w-full h-full object-cover">
+          <source src="/images/op-demo-mobile.mp4" type="video/mp4">
+          <img src="/images/op-demo-mobile.gif" alt="Mobile Demo" class="w-full h-full object-cover">
+        </video>
+      </div>
+    </div>
+  </div>
+  <div class="flex flex-col relative z-20">
+    <div v-click class="text-xl font-bold mb-4">L'Ecosystem React Native</div>
     <ul class="space-y-3">
       <li v-click class="flex items-center gap-2">
         <span class="text-[#00E8FF]">▸</span>
@@ -430,35 +454,6 @@ transition: slide-left
         <span class="font-bold">Audio</span>: Let's talk about audio...
       </li>
     </ul>
-  </div>
-
-  <div class="flex flex-col">
-    <div class="relative">
-      <!-- Thumbnail YouTube -->
-      <a v-click href="https://www.youtube.com/watch?v=PGvhniTxpu4" target="_blank" class="group">
-        <img src="/images/appjs-2024.jpg" class="w-full rounded-xl transition-transform duration-300 group-hover:scale-105" />
-        <div class="mt-2 flex items-center justify-center gap-2 text-sm opacity-75 group-hover:opacity-100 group-hover:text-red">
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-          </svg>
-          Voir sur YouTube
-        </div>
-      </a>
-      <!-- Flèche et teaser -->
-      <div v-click class="relative mt-8">
-        <!-- Teaser -->
-        <div class="p-4 bg-[#1B1B1F] rounded-xl relative overflow-none">
-          <!-- Flèche courbe -->
-          <svg class="absolute -top-22 -left-4 w-24 h-24 text-gray-700 opacity-25 rotate-270" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M4 12h10M4 12l4-4m-4 4l4 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div class="text-sm opacity-75">
-            <strong>Kim in 2024:</strong> "React Native is 💩 for audio!"<br/>
-            <strong>Kim in 2025:</strong> <a href="https://appjs.co/speakers/kim-chouard" target="_blank" class="text-red hover:underline">React Native + 🎵 = ❤️</a>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 
