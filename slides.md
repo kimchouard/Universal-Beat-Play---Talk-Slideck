@@ -491,20 +491,132 @@ transition: slide-up
         </div>
       </div>
     </div>
+</div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# Un exemple simple: La Chèvre!
+
+<div class="grid grid-cols-2 gap-8">
+  <div v-click class="flex flex-col items-center h-[80%]">
+    <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
+    <!-- Chrome-style browser bar -->
+    <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          jesuisunechev.re
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer"
+      @click="$refs.goatSound?.play()"
+    >
+      <img
+        src="/images/chevre_de_verzasca.jpg"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black bg-opacity-30" />
+    </div>
+  </div>
+
+  <div v-click class="flex flex-col">
+    <div class="text-left">
+```tsx
+// jesuisunechev.re, universellement! 🐐💨
+import { useAudioPlayer } from 'expo-audio';
+import { Image, Pressable } from 'react-native';
+
+export default function GoatButton() {
+  const player = useAudioPlayer({
+    uri: require('./assets/chevre.mp3'),
+    volume: 1.0,
+  });
+
+  return (
+    <Pressable onPress={() => {
+      player.play()
+    }}>
+      <Image
+        source={require('./assets/chevre.jpg')}
+        style={{ width: 400, height: 400 }}
+      />
+    </Pressable>
+  );
+}
+```
+    </div>
+  </div>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# L'Audio avec React Native
+
+<div class="grid grid-cols-2 gap-8">
+  <div v-click class="flex flex-col">
+    <h3 class="text-xl font-bold mb-4 text-[#00E8FF]">Cas d'usage simples</h3>
+    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-4" href="https://docs.expo.dev/versions/latest/sdk/audio/" target="_blank">
+      <div class="font-bold mb-2 text-[#00E8FF]">expo-audio</div>
+      <ul class="space-y-2">
+        <li>✨ Jouer des sons (effets, musique)</li>
+        <li>🎙️ Enregistrer des sons</li>
+        <li>🔊 Contrôle basique (volume, pitch)</li>
+        <li>📱 Cross-platform facile</li>
+      </ul>
+    </a>
+    <div class="text-sm opacity-75 italic">
+      Parfait pour les apps avec des besoins audio basiques
+    </div>
+  </div>
+
+  <div v-click class="flex flex-col">
+    <h3 class="text-xl font-bold mb-4 text-[#FF00F7]">Cas d'usage avancés</h3>
+    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-4" href="https://docs.swmansion.com/react-native-audio-api/" target="_blank">
+      <div class="font-bold mb-2 text-[#FF00F7]">react-native-audio-api</div>
+      <ul class="space-y-2">
+        <li>🎹 Synthétiseur audio</li>
+        <li>🎛️ Effets audio (filtres, delay)</li>
+        <li>⚡️ Latence ultra-basse</li>
+        <li>🔄 Synchronisation précise</li>
+      </ul>
+    </a>
+    <div class="text-sm opacity-75 italic">
+      Pour les apps musicales professionnelles
+    </div>
   </div>
 </div>
 
 ---
 layout: center
 class: text-center
-transition: slide-left
+transition: slide-up
 ---
 
-# Merci!
+<h1 className="bold-gradient">Merci!</h1>
 
 <div class="mt-8">
   <div class="text-xl font-bold">Questions?</div>
   <div class="mt-4">
-    <a href="https://odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">odiseimusic.com</a>
+    <a href="mailto:kim@odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">kim@odiseimusic.com</a>
+  </div>
+  <div class="text-xl mt-8 font-bold">Envie d'apprendre le Sax? 🎷</div>
+  <div class="mt-4">
+    <a href="https://play.odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">play.odiseimusic.com</a>
   </div>
 </div>
