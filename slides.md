@@ -65,6 +65,10 @@ lineNumbers: false
   font-weight: bold;
 }
 
+.bold-blue {
+  color: #00E8FF;
+}
+
 .slide-title, h1 {
   color: #00E8FF;
   font-size: 2.5rem !important;
@@ -142,11 +146,11 @@ lineNumbers: false
 </div>
 
 <div class="abs-bl ml-4 mb-4 flex items-center gap-4">
-  <img src="/images/kim-profile.jpg" class="w-16 h-16 rounded-full border-2 border-gradient" />
+  <img src="/images/kim-profile.jpg" class="w-16 h-16 rounded-full" />
   <div class="flex flex-col">
     <div class="text-xl font-bold">Kim Chouard</div>
     <div class="text-sm opacity-75">
-      CTO @ <a href="https://odiseimusic.com" class="text-blue-500 hover:underline">Odisei Music</a>
+      CTO @ <a href="https://odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">Odisei Music</a>
     </div>
   </div>
 </div>
@@ -195,7 +199,7 @@ transition: slide-left
 
 <div class="flex flex-row items-start gap-8">
   <div v-click class="flex flex-col items-center">
-    <div class="text-2xl font-bold mb-4">Vous êtes un peu flemmard? 😅</div>
+    <div class="text-2xl font-bold mb-4">Ça vous arrive d'avoir la <strong className="bold-blue">FLEMME</strong>? 😅</div>
     <img v-click src="/images/lazy-meme.jpeg" class="w-80 h-60 rounded-lg shadow-lg" />
   </div>
   <div v-click class="flex flex-col items-center">
@@ -245,7 +249,7 @@ transition: slide-left
           <li class="mb-3">🔥 One Code</li>
           <li class="mb-3">🎯 Compiled Natively</li>
           <li class="mb-3">🚀 60 FPS</li>
-          <li class="mb-3">🌈 UI Natives</li>
+          <li class="mb-3">🌈 Native Primitives</li>
           <li class="mb-3">🔄 Releases faciles</li>
         </ul>
       </div>
@@ -263,9 +267,9 @@ transition: slide-left
 ```mermaid
 graph LR
     A[Code React Native] --> B[Metro Bundler]
-    B --> C[iOS Native]
-    B --> D[Android Native]
-    B --> E[Web]
+    B --> C[iOS Code: Swift, etc.]
+    B --> D[Android code: Java, etc.]
+    B --> E[Web: HTML/CSS/JS]
     C --> F[App iOS]
     D --> G[App Android]
     E --> H[App Web]
@@ -280,7 +284,7 @@ graph LR
     style H fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
 ```
 
-<div class="mt-8">
+<div class="mt-2">
   <div v-click class="text-xl font-bold">Le meilleur des deux mondes</div>
   <ul class="list-disc pl-4 mt-4">
     <li v-click>Performance native</li>
@@ -294,27 +298,30 @@ layout: default
 transition: slide-left
 ---
 
-# De Web à Mobile
+# De React... à Native
 
 <div class="grid grid-cols-2 gap-8 w-full">
-<div>
 
+<div class="flex-1 overflow-hidden">
+
+````md magic-move {lines: true}
 ```tsx {all|2-3|6-16|all}
-// App.tsx
+// WEB: Homepage.tsx component (<Homepage />)
 import React from 'react';
 
 const Homepage = () => {
   return (
-    <div class="w-[400px] bg-[#1B1B1F] rounded-lg shadow-xl overflow-hidden p-8 flex flex-col items-center justify-center">
-      <h1 class="text-2xl font-bold mb-2 text-white text-center">
-        Welcome to<br />Odisei Play!
+    <div className="w-[400px] bg-[#1B1B1F] rounded-lg shadow-xl overflow-hidden p-8 flex flex-col items-center justify-center">
+      <h1 className="text-2xl font-bold mb-2 text-white text-center">
+        Welcome to<br />
+        Odisei Play!
       </h1>
       <p className="text-gray-400">
         Let's make some music! 🎵
       </p>
-      <button class="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-300 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
+      <a className="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-200 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
         Enter
-      </button>
+      </a>
     </div>
   );
 };
@@ -322,7 +329,35 @@ const Homepage = () => {
 export default Homepage;
 ```
 
+```tsx {all|3-4|8-19|all}
+// MOBILE: Homepage.tsx React-Native component (<Homepage />)
+import React from 'react';
+import { View, Text } from 'react-native';
+import { Link } from 'expo-router';
+
+const Homepage = () => {
+  return (
+    <View className="w-[400px] bg-[#1B1B1F] rounded-lg shadow-xl overflow-hidden p-8 flex flex-col items-center justify-center">
+      <Text className="text-2xl font-bold mb-2 text-white text-center">
+        Welcome to{'\n'}
+        Odisei Play!
+      </Text>
+      <Text className="text-gray-400">
+        Let's make some music! 🎵
+      </Text>
+      <Link className="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)]" style={({ pressed }) => pressed ? 'translate-y-0.5 shadow-[0_0px_0_rgb(153,0,140)]' : '-translate-y-1 shadow-[0_6px_0_rgb(153,0,140)]'}>
+        <Text className="text-white font-bold">Enter</Text>
+      </Link>
+    </View>
+  );
+};
+
+export default Homepage;
+```
+````
+
 </div>
+
 <div class="flex">
   <!-- Simulateur avec bordure gradient -->
   <div class="
@@ -340,10 +375,10 @@ export default Homepage;
       <h1 class="text-2xl font-bold mb-2 text-white text-center">
         Welcome to<br />Odisei Play!
       </h1>
-      <p className="text-gray-400">
+      <p class="text-gray-400">
         Let's make some music! 🎵
       </p>
-      <button class="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-300 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
+      <button class="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-200 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
         Enter
       </button>
     </div>
@@ -351,64 +386,79 @@ export default Homepage;
 </div>
 </div>
 
-<div v-click class="mt-12">
-  <div class="text-xl font-bold mb-4">Tailwind CSS</div>
-  <div class="flex gap-4 items-center">
-    <code class="bg-gray-800 p-2 rounded text-sm">npm install tailwindcss</code>
-    <span class="opacity-50">→</span>
-    <span>Styles directement dans le JSX</span>
-  </div>
-</div>
-
 ---
 layout: default
 transition: slide-left
 ---
 
-# Playing UI avec Skia
+# Construire un jeu avec React Native
 
 <div class="grid grid-cols-2 gap-8">
-  <div>
-    <h3 class="text-xl font-bold mb-4">React Native Skia</h3>
-    <ul class="list-disc pl-4">
-      <li v-click>Rendu 2D performant</li>
-      <li v-click>60 FPS garantis</li>
-      <li v-click>Animations fluides</li>
+  <div class="flex flex-col">
+    <div class="text-xl font-bold mb-4">L'Ecosystem React Native</div>
+    <ul class="space-y-3">
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#00E8FF]">▸</span>
+        <a target="_blank" href="https://docs.swmansion.com/react-native-reanimated/" class="hover:text-[#00E8FF]">Reanimated</a>: Animations on UI thread
+      </li>
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#00E8FF]">▸</span>
+        <a target="_blank" href="https://www.nativewind.dev/v4/overview" class="hover:text-[#00E8FF]">NativeWind</a>: Universal Tailwind CSS
+      </li>
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#00E8FF]">▸</span>
+        <a target="_blank" href="https://docs.expo.dev/router/introduction/" class="hover:text-[#00E8FF]">Expo Router</a>: File-based Navigation + SSR
+      </li>
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#00E8FF]">▸</span>
+        <a target="_blank" href="https://shopify.github.io/react-native-skia/" class="hover:text-[#00E8FF]">React Native Skia</a>: High-Performance Graphics
+      </li>
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#00E8FF]">▸</span>
+        <a target="_blank" href="https://docs.expo.dev/eas/" class="hover:text-[#00E8FF]">EAS</a>: Build & Deploy Made Easy
+      </li>
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#00E8FF]">▸</span>
+        <a target="_blank" href="https://nitro.build/" class="hover:text-[#00E8FF]">Nitro Modules</a>: Native/C++ Code Integration
+      </li>
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#00E8FF]">▸</span>
+        <a target="_blank" href="https://github.com/wcandillon/react-native-webgpu" class="hover:text-[#00E8FF]">rn-web-gpu</a>: Universal 3D with WebGPU
+      </li>
+      <li v-click class="flex items-center gap-2">
+        <span class="text-[#FF00F7]">▸</span>
+        <span class="font-bold">Audio</span>: Let's talk about audio...
+      </li>
     </ul>
   </div>
-  <div>
-    <h3 class="text-xl font-bold mb-4">Reanimated</h3>
-    <ul class="list-disc pl-4">
-      <li v-click>Animations natives</li>
-      <li v-click>Thread UI dédié</li>
-      <li v-click>Gestures</li>
-    </ul>
-  </div>
-</div>
 
----
-layout: default
-transition: slide-left
----
-
-# Gestion Audio
-
-<div class="grid grid-cols-2 gap-8">
-  <div>
-    <h3 class="text-xl font-bold mb-4">expo-audio</h3>
-    <ul class="list-disc pl-4">
-      <li v-click>Simple d'utilisation</li>
-      <li v-click>Parfait pour les débutants</li>
-      <li v-click>Bonne documentation</li>
-    </ul>
-  </div>
-  <div>
-    <h3 class="text-xl font-bold mb-4">react-native-audio-api</h3>
-    <ul class="list-disc pl-4">
-      <li v-click>Plus de contrôle</li>
-      <li v-click>Meilleures performances</li>
-      <li v-click>Avancé</li>
-    </ul>
+  <div class="flex flex-col">
+    <div class="relative">
+      <!-- Thumbnail YouTube -->
+      <a v-click href="https://www.youtube.com/watch?v=PGvhniTxpu4" target="_blank" class="group">
+        <img src="/images/appjs-2024.jpg" class="w-full rounded-xl transition-transform duration-300 group-hover:scale-105" />
+        <div class="mt-2 flex items-center justify-center gap-2 text-sm opacity-75 group-hover:opacity-100 group-hover:text-red">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+          </svg>
+          Voir sur YouTube
+        </div>
+      </a>
+      <!-- Flèche et teaser -->
+      <div v-click class="relative mt-8">
+        <!-- Teaser -->
+        <div class="p-4 bg-[#1B1B1F] rounded-xl relative overflow-none">
+          <!-- Flèche courbe -->
+          <svg class="absolute -top-22 -left-4 w-24 h-24 text-gray-700 opacity-25 rotate-270" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 12h10M4 12l4-4m-4 4l4 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="text-sm opacity-75">
+            <strong>Kim in 2024:</strong> "React Native is 💩 for audio!"<br/>
+            <strong>Kim in 2025:</strong> <a href="https://appjs.co/speakers/kim-chouard" target="_blank" class="text-red hover:underline">React Native + 🎵 = ❤️</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -423,6 +473,6 @@ transition: slide-left
 <div class="mt-8">
   <div class="text-xl font-bold">Questions?</div>
   <div class="mt-4">
-    <a href="https://odiseimusic.com" class="text-blue-500 hover:underline">odiseimusic.com</a>
+    <a href="https://odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">odiseimusic.com</a>
   </div>
 </div>
