@@ -65,7 +65,7 @@ lineNumbers: false
   font-weight: bold;
 }
 
-.slide-title {
+.slide-title, h1 {
   color: #00E8FF;
   font-size: 2.5rem !important;
   margin-bottom: 2rem !important;
@@ -82,6 +82,57 @@ lineNumbers: false
   border: 2px solid;
   border-image: linear-gradient(to right, #00E8FF, #FF00F7) 1;
   border-radius: 8px;
+}
+
+/* Styles pour le diagramme de Venn */
+.border-gradient {
+  border-image: linear-gradient(45deg, #00E8FF, #FF00F7) 1;
+}
+
+.border-\[\#00E8FF\] {
+  box-shadow: 0 0 15px rgba(0, 232, 255, 0.2);
+}
+
+.border-\[\#FF00F7\] {
+  box-shadow: 0 0 15px rgba(255, 0, 247, 0.2);
+}
+
+.bg-\[\#00E8FF10\] {
+  background: rgba(0, 232, 255, 0.05);
+}
+
+.bg-\[\#FF00F710\] {
+  background: rgba(255, 0, 247, 0.05);
+}
+
+/* Style pour les listes du diagramme de Venn */
+.venn-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.venn-list li {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.venn-list.text-right li {
+  justify-content: flex-end;
+}
+
+/* Styles pour les points négatifs */
+.negative-point {
+  opacity: 0.6;
+  font-style: italic;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.negative-point::before {
+  content: "🚫";
+  position: absolute;
+  left: 0;
 }
 </style>
 
@@ -114,7 +165,7 @@ class: text-center
 transition: slide-up
 ---
 
-<h1 class="slide-title">Levez la main si...</h1>
+# Levez la main si...
 
 <div class="grid grid-cols-3 gap-12 mt-12">
   <div v-click class="flex flex-col items-center">
@@ -140,7 +191,7 @@ class: text-center
 transition: slide-left
 ---
 
-<h1 class="slide-title">Levez la main si...</h1>
+# Levez la main si...
 
 <div class="flex flex-row items-start gap-8">
   <div v-click class="flex flex-col items-center">
@@ -155,29 +206,50 @@ transition: slide-left
 
 ---
 layout: default
+class: text-center
 transition: slide-left
 ---
 
-# React Native pour les Devs React
+# Write once, run everywhere
 
-<div class="grid grid-cols-2 gap-8">
-  <div>
-    <h3 class="text-xl font-bold mb-4">C'est quoi?</h3>
-    <ul class="list-disc pl-4">
-      <li v-click>Framework pour applications mobiles natives</li>
-      <li v-click>Écrit en JavaScript/TypeScript</li>
-      <li v-click>Utilise les composants React</li>
-      <li v-click>Compilé en code natif</li>
-    </ul>
-  </div>
-  <div>
-    <h3 class="text-xl font-bold mb-4">Avantages</h3>
-    <ul class="list-disc pl-4">
-      <li v-click>Write once, run everywhere</li>
-      <li v-click>Performance native</li>
-      <li v-click>Hot Reload</li>
-      <li v-click>Écosystème React</li>
-    </ul>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px]">
+  <div class="relative h-[500px]">
+    <div v-click class="absolute -left-[150px] -top-[150px] w-[850px] h-[850px] rounded-full border-2 border-[#00E8FF] bg-[#00E8FF10] flex items-center">
+      <div class="text-left pl-48 ml-[0px] -mt-[50px]">
+        <div class="font-bold text-xl mb-4 text-[#00E8FF]">Mobile Dev</div>
+        <ul class="venn-list">
+          <li class="mb-2">📱 "Native Feel"</li>
+          <li class="mb-2">✨ Accès complet: <br />capteurs, caméra, GPS...</li>
+          <li class="mb-2">🚀 Performances</li>
+          <li class="mb-2 opacity-50">🚫 1 équipe / platforme</li>
+          <li class="mb-2 opacity-50">🚫 MAJ App Store longues</li>
+        </ul>
+      </div>
+    </div>
+    <div v-click class="absolute -right-[150px] -top-[150px] w-[850px] h-[850px] rounded-full border-2 border-[#FF00F7] bg-[#FF00F710] flex items-center justify-end">
+      <div class="text-right pr-48 -mt-[50px]">
+        <div class="font-bold text-xl mb-4 text-[#FF00F7]">Web Dev</div>
+        <ul class="venn-list text-right">
+          <li class="mb-2">⚡️ Dev Rapide</li>
+          <li class="mb-2">🔄 Releases faciles</li>
+          <li class="mb-2">📦 Gros écosystème</li>
+          <li class="mb-2 opacity-50">🚫 Seulement sur navigateur</li>
+          <li class="mb-2 opacity-50">🚫 Performance et<br />features limitées</li>
+        </ul>
+      </div>
+    </div>
+    <div v-click class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] z-10">
+      <div class="text-center">
+        <div class="font-bold text-2xl mb-6 bold-gradient">React Native</div>
+        <ul class="venn-list text-left">
+          <li class="mb-3">🔥 One Code</li>
+          <li class="mb-3">🎯 Compiled Natively</li>
+          <li class="mb-3">🚀 60 FPS</li>
+          <li class="mb-3">🌈 UI Natives</li>
+          <li class="mb-3">🔄 Releases faciles</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -189,13 +261,23 @@ transition: slide-left
 # Comment ça marche?
 
 ```mermaid
-graph TD
+graph LR
     A[Code React Native] --> B[Metro Bundler]
-    B --> C[JavaScript Core]
-    C --> D[iOS Native Code]
-    C --> E[Android Native Code]
-    D --> F[App iOS]
-    E --> G[App Android]
+    B --> C[iOS Native]
+    B --> D[Android Native]
+    B --> E[Web]
+    C --> F[App iOS]
+    D --> G[App Android]
+    E --> H[App Web]
+
+    style A fill:#1B1B1F,stroke:#A855F7,color:#A855F7
+    style B fill:#1B1B1F,stroke:#A855F7,color:#A855F7
+    style C fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+    style D fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+    style E fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
+    style F fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+    style G fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+    style H fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
 ```
 
 <div class="mt-8">
@@ -208,39 +290,73 @@ graph TD
 </div>
 
 ---
-layout: two-cols
+layout: default
 transition: slide-left
 ---
 
 # De Web à Mobile
 
-```tsx
+<div class="grid grid-cols-2 gap-8 w-full">
+<div>
+
+```tsx {all|2-3|6-16|all}
 // App.tsx
 import React from 'react';
-import { View, Text } from 'react-native';
 
-const App = () => {
+const Homepage = () => {
   return (
-    <View className="flex-1 bg-white">
-      <View className="p-4">
-        <Text className="text-2xl font-bold">
-          Welcome to Odisei Play!
-        </Text>
-      </View>
-    </View>
+    <div class="w-[400px] bg-[#1B1B1F] rounded-lg shadow-xl overflow-hidden p-8 flex flex-col items-center justify-center">
+      <h1 class="text-2xl font-bold mb-2 text-white text-center">
+        Welcome to<br />Odisei Play!
+      </h1>
+      <p className="text-gray-400">
+        Let's make some music! 🎵
+      </p>
+      <button class="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-300 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
+        Enter
+      </button>
+    </div>
   );
 };
 
-export default App;
+export default Homepage;
 ```
 
-::right::
+</div>
+<div class="flex">
+  <!-- Simulateur avec bordure gradient -->
+  <div class="
+    relative p-8 rounded-[2rem]
+    before:absolute before:inset-0
+    before:p-[2px] before:rounded-[2rem]
+    before:bg-gradient-to-r before:from-[#00E8FF] before:to-[#FF00F7]
+    before:content-['']
+    after:absolute after:inset-[1px]
+    after:rounded-[calc(2rem-1px)]
+    after:bg-[#1B1B1F]
+    after:content-['']
+  ">
+    <div class="relative z-10 w-[400px] bg-[#1B1B1F] rounded-lg overflow-hidden p-8 flex flex-col items-center justify-center">
+      <h1 class="text-2xl font-bold mb-2 text-white text-center">
+        Welcome to<br />Odisei Play!
+      </h1>
+      <p className="text-gray-400">
+        Let's make some music! 🎵
+      </p>
+      <button class="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-300 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
+        Enter
+      </button>
+    </div>
+  </div>
+</div>
+</div>
 
-<div class="flex flex-col items-center justify-center h-full">
-  <div v-click class="text-xl font-bold mb-4">NativeWind</div>
-  <div v-click class="text-lg">Tailwind pour React Native</div>
-  <div v-click class="mt-8">
-    <code class="bg-gray-100 p-2 rounded">npm install nativewind</code>
+<div v-click class="mt-12">
+  <div class="text-xl font-bold mb-4">Tailwind CSS</div>
+  <div class="flex gap-4 items-center">
+    <code class="bg-gray-800 p-2 rounded text-sm">npm install tailwindcss</code>
+    <span class="opacity-50">→</span>
+    <span>Styles directement dans le JSX</span>
   </div>
 </div>
 
