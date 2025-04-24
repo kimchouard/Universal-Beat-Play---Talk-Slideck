@@ -270,6 +270,7 @@ graph LR
     B --> C[iOS Code: Swift, etc.]
     B --> D[Android code: Java, etc.]
     B --> E[Web: HTML/CSS/JS]
+    B --> I[Mac, Windows, TV, VR...]
     C --> F[App iOS]
     D --> G[App Android]
     E --> H[App Web]
@@ -284,8 +285,8 @@ graph LR
     style H fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
 ```
 
-<div class="mt-2">
-  <div v-click class="text-xl font-bold">Le meilleur des deux mondes</div>
+<div class="-mt-26">
+  <div v-click class="text-xl font-bold">Le meilleur des 2, 3... X mondes!</div>
   <ul class="list-disc pl-4 mt-4">
     <li v-click>Performance native</li>
     <li v-click>Développement rapide</li>
@@ -499,7 +500,7 @@ layout: default
 transition: slide-left
 ---
 
-# Un exemple simple: La Chèvre!
+# Un exemple simple 🐐
 
 <div class="grid grid-cols-2 gap-8">
   <div v-click class="flex flex-col items-center h-[80%]">
@@ -535,7 +536,7 @@ transition: slide-left
   <div v-click class="flex flex-col">
     <div class="text-left">
 ```tsx
-// jesuisunechev.re, universellement! 🐐💨
+// jesuisunechev.re, universellement!! 🐐💨
 import { useAudioPlayer } from 'expo-audio';
 import { Image, Pressable } from 'react-native';
 
