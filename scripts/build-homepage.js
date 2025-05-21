@@ -5,9 +5,11 @@ const CWD = process.cwd();
 const HOMEPAGE_SRC_PATH = path.join(CWD, 'homepage');
 const PUBLIC_SRC_PATH = path.join(CWD, 'public');
 const LEGACY_IMAGES_SRC_PATH = path.join(CWD, 'images'); // To also copy root /images if it exists
+const SERVE_JSON_SRC_PATH = path.join(CWD, 'serve.json');
 
 const DIST_PATH = path.join(CWD, 'dist');
 const DIST_IMAGES_PATH = path.join(DIST_PATH, 'images'); // Explicitly for legacy images if not in public
+const SERVE_JSON_DEST_PATH = path.join(DIST_PATH, 'serve.json');
 
 async function buildHomepage() {
     try {
@@ -42,6 +44,14 @@ async function buildHomepage() {
             console.log(`Found legacy images at ${LEGACY_IMAGES_SRC_PATH}. Copying its contents to dist/images...`);
             await fs.copy(LEGACY_IMAGES_SRC_PATH, DIST_IMAGES_PATH, { overwrite: true, errorOnExist: false });
             console.log(`Copied contents of ${LEGACY_IMAGES_SRC_PATH} to ${DIST_IMAGES_PATH}`);
+        }
+
+        // Copy serve.json to dist directory
+        if (await fs.pathExists(SERVE_JSON_SRC_PATH)) {
+            await fs.copy(SERVE_JSON_SRC_PATH, SERVE_JSON_DEST_PATH);
+            console.log(`Copied ${SERVE_JSON_SRC_PATH} to ${SERVE_JSON_DEST_PATH}`);
+        } else {
+            console.warn(`serve.json not found at ${SERVE_JSON_SRC_PATH}, SPA rewrites for local 'serve' might not work.`);
         }
 
         console.log('Homepage and public assets build complete.');

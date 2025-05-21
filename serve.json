@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/slides/universal-beat-play/**",
+      "destination": "/slides/universal-beat-play/index.html"
+    },
+    {
+      "source": "/slides/appjs-2025-mozart-react-native/**",
+      "destination": "/slides/appjs-2025-mozart-react-native/index.html"
+    }
+  ]
+} 
