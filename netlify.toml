@@ -1,15 +1,32 @@
 [build]
 publish = "dist"
-command = "npm run build"
+command = "pnpm run build"
 
 [build.environment]
 NODE_VERSION = "20"
+# PNPM_VERSION = "8" # Optional: specify pnpm version if needed
 
+# Optional: redirect for .well-known if still needed, otherwise remove
+# [[redirects]]
+#   from = "/.well-known/*"
+#   to = "/.well-known/:splat"
+#   status = 200
+
+# Rewrite rule for slide decks (SPA behavior)
+# This ensures that /slides/my-talk/anything serves /slides/my-talk/index.html
 [[redirects]]
-from = "/.well-known/*"
-to = "/.well-known/:splat"
+from = "/slides/:slug/*"
+to = "/slides/:slug/index.html"
 status = 200
 
+# Rewrite rule for accessing slide deck base URL
+# This ensures that /slides/my-talk serves /slides/my-talk/index.html
+[[redirects]]
+from = "/slides/:slug"
+to = "/slides/:slug/index.html"
+status = 200
+
+# Catch-all for the main homepage (dist/index.html)
 [[redirects]]
 from = "/*"
 to = "/index.html"

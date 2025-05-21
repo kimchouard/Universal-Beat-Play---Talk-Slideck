@@ -1,18 +1,33 @@
 {
-  "name": "universal-beat-and-play",
+  "name": "talks.chouard.kim",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "dev": "pnpm run serve:homepage",
+    "build": "pnpm run clean && pnpm run build:homepage && pnpm run build:slides",
+    "build:slides": "run-p build:universal-beat-play build:appjs-2025-mozart-react-native",
+    "dev:universal-beat-play": "slidev packages/universal-beat-play/index.md --open --port 3031",
+    "build:universal-beat-play": "slidev build packages/universal-beat-play/index.md --out ../../dist/slides/universal-beat-play --base /slides/universal-beat-play/",
+    "export:universal-beat-play": "slidev export packages/universal-beat-play/index.md --output ../../dist/pdf/universal-beat-play.pdf",
+    "dev:appjs-2025-mozart-react-native": "slidev packages/appjs-2025-mozart-react-native/index.md --open --port 3032",
+    "build:appjs-2025-mozart-react-native": "slidev build packages/appjs-2025-mozart-react-native/index.md --out ../../dist/slides/appjs-2025-mozart-react-native --base /slides/appjs-2025-mozart-react-native/",
+    "export:appjs-2025-mozart-react-native": "slidev export packages/appjs-2025-mozart-react-native/index.md --output ../../dist/pdf/appjs-2025-mozart-react-native.pdf",
+    "build:homepage": "node ./scripts/build-homepage.js",
+    "serve:homepage": "pnpm run build:homepage && serve dist",
+    "clean": "node ./scripts/clean.js",
+    "serve": "serve dist"
   },
   "dependencies": {
-    "@slidev/cli": "^51.6.0",
-    "@slidev/theme-apple-basic": "^0.25.1",
+    "@slidev/cli": "^0.48.0",
+    "@slidev/theme-apple-basic": "^0.25.0",
     "@slidev/theme-bricks": "^0.25.0",
     "@slidev/theme-default": "latest",
     "@slidev/theme-seriph": "latest",
-    "vue": "^3.5.13"
+    "vue": "^3.4.27"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.2.0",
+    "npm-run-all": "^4.1.5",
+    "serve": "^14.2.3"
   }
 }
