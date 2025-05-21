@@ -11,7 +11,7 @@ info: |
   Développe des jeux musicaux multi-plateformes avec *React Native*
 # apply unocss classes to the current slide
 class: text-center
-layout: cover
+layout: center
 # https://sli.dev/features/drawing
 drawings:
   persist: false

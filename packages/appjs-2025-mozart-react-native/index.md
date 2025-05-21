@@ -11,6 +11,7 @@ info: |
   Exploring modern app development with React Native.
 # apply unocss classes to the current slide
 class: text-center
+layout: center
 # https://sli.dev/features/drawing
 drawings:
   persist: false
@@ -209,7 +210,7 @@ transition: slide-left
 </div>
 
 ---
-layout: default
+layout: center
 class: text-center
 transition: slide-left
 ---
