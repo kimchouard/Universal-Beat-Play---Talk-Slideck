@@ -7,8 +7,8 @@ background: https://source.unsplash.com/collection/94734566/1920x1080
 # some information about your slides (markdown enabled)
 title: "Mozart Never Had React Native: You Do"
 info: |
-  ## Mozart Never Had React Native: You Do 🎶🚀
-  Exploring modern app development with React Native.
+  ## Mozart Never Had React Native: You Do!
+  Craft Unforgettable UXs with Sound
 # apply unocss classes to the current slide
 class: text-center
 layout: center
@@ -37,10 +37,11 @@ lineNumbers: false
 }
 
 .main-title h1 {
-  background: linear-gradient(to right, #00E8FF, #FF00F7);
+  /* background: linear-gradient(to right, #00E8FF, #FF00F7);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 4rem !important;
+  -webkit-text-fill-color: transparent; */
+  color: #ddd;
+  font-size: 3.5rem !important;
   line-height: 1.2 !important;
   margin-bottom: 1.5rem !important;
   padding: 0.5rem 0;
@@ -142,8 +143,9 @@ lineNumbers: false
 </style>
 
 <div class="main-title">
-  <h1>Mozart Never Had React Native <span class="emoji">🎶🚀</span></h1>
-  <h2>Exploring modern app development with <span class="bold-gradient">React Native</span></h2>
+  <h1>Mozart Never Had React Native.<br />
+  <span class="bold-gradient">You DO!</span></h1>
+  <h2>Craft Unforgettable UXs with Sound</h2>
 </div>
 
 <div class="abs-bl ml-4 mb-4 flex items-center gap-4">
@@ -159,7 +161,7 @@ lineNumbers: false
 <div class="abs-br mr-4 mb-4 flex items-center gap-4">
   <div class="flex flex-col items-end">
     <div class="text-xl">App.js 2025</div> <!-- Update with actual date if known -->
-    <div class="text-sm opacity-75">@ Venue Placeholder</div> <!-- Update with actual venue if known -->
+    <div class="text-sm opacity-75">@Kraków, Poland</div> <!-- Update with actual venue if known -->
   </div>
   <!-- <img src="/images/appjs-logo.svg" class="w-16 h-16" /> Placeholder, replace with actual App.js logo if available -->
 </div>
@@ -170,25 +172,43 @@ class: text-center
 transition: slide-up
 ---
 
-# Levez la main si...
+# Guess the sound! 👂
 
-<div class="grid grid-cols-3 gap-12 mt-12">
-  <div v-click class="flex flex-col items-center">
-    <div class="text-2xl font-bold mb-4">Mobile Dev?</div>
-    <div class="flex gap-4">
-      <img v-after src="/images/x-code.png" class="w-20 h-20" />
-      <img v-after src="/images/android-studio.svg" class="w-20 h-20" />
+<audio ref="microwaveAudioRef" src="/microwave-ding.wav" preload="auto"></audio>
+<audio ref="netflixAudioRef" src="/netflix-intro.mp3" preload="auto"></audio>
+<audio ref="iphoneLockAudioRef" src="/iphone-lock.wav" preload="auto"></audio>
+
+<div class="grid grid-cols-3 gap-20 mt-12">
+  <div @click="$refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.iphoneLockAudioRef?.pause(); if($refs.iphoneLockAudioRef) $refs.iphoneLockAudioRef.currentTime = 0; $refs.microwaveAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
+    <div class="text-2xl font-bold mb-4">Sound 1</div>
+    <div class="flex gap-4 mt-5 relative">
+      <img v-click src="/images/microwave.png" class="w-40 h-40 absolute top-0 left-0 z-99" />
+      <img src="/images/microwave.png" class="w-40 h-40 filter blur-lg" />
     </div>
   </div>
-  <div v-click class="flex flex-col items-center">
-    <div class="text-2xl font-bold mb-4">Web Dev?</div>
-    <img v-after src="/images/web-dev.png" class="w-20 h-20" />
+  <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.iphoneLockAudioRef?.pause(); if($refs.iphoneLockAudioRef) $refs.iphoneLockAudioRef.currentTime = 0; $refs.netflixAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
+    <div class="text-2xl font-bold mb-4">Sound 2</div>
+    <div class="flex gap-4 mt-5 relative">
+      <img v-click src="/images/Netflix_icon.svg" class="w-40 h-40 absolute top-0 left-0 z-99" />
+      <img src="/images/Netflix_icon.svg" class="w-40 h-40 filter blur-xl" />
+    </div>
   </div>
-  <div v-click class="flex flex-col items-center">
-    <div class="text-2xl font-bold mb-4">React?</div>
-    <img v-after src="/images/react.svg" class="w-20 h-20" />
+  <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.iphoneLockAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
+    <div class="text-2xl font-bold mb-4">Sound 3</div>
+    <div class="flex gap-4 mt-5 relative">
+      <img v-click src="/images/iphone.png" class="w-40 h-40 absolute top-0 left-0 z-99" />
+      <img src="/images/iphone.png" class="w-40 h-40 filter blur-lg" />
+    </div>
   </div>
 </div>
+
+<!--
+Speaker Notes:
+
+* "Let's have some fun before we dive in. Listen to these sounds and try to guess what they are."
+* Crowd participation.
+* End with: "You knew these sounds instantly. Why? Because sound is memory, emotion, identity."
+-->
 
 ---
 layout: center
@@ -196,306 +216,98 @@ class: text-center
 transition: slide-left
 ---
 
-# Levez la main si...
+# 🔊 The Power of Sound 
 
-<div class="flex flex-row items-start gap-8">
-  <div v-click class="flex flex-col items-center">
-    <div class="text-2xl font-bold mb-4">Ça vous arrive d'avoir la <strong className="bold-blue">FLEMME</strong>? 😅</div>
-    <img v-click src="/images/lazy-meme.jpeg" class="w-80 h-60 rounded-lg shadow-lg" />
-  </div>
-  <div v-click class="flex flex-col items-center">
-    <div class="text-2xl font-bold mb-4">La solution?</div>
-    <img v-after src="/images/react-native.svg" class="w-60 h-60" />
-  </div>
-</div>
+
+> *(Sound FX only skit: iPhone default ringtone → message notification tone → then send message swish -> then a LOT of message received swish)*
+
+<!--
+Speaker Notes:
+
+* "And... \[call sounds] sorry... "Chérie"? Shit, not the right time honey. (mimicate hanging up). \[text sound] Excuse me, my baby is at home and... \[send swish] my bad. \[multiple receive swiches] (face become shocked) oh shit. I was kidding, this was all fake. I'm not texting anybody.
+* All sound cues — no visuals. Builds curiosity.
+* Punchline: *"You didn't see anything, but just by hearing it you could "picture" the whole story. That's the power of sound!"*
+-->
+
+---
+layout: default
+transition: slide-left
+---
+
+
+# 🧠 Why Sound Matters
+
+## 👂 Earcons, Emotions & Engagement
+
+<!--
+Speaker Notes:
+* Define "Earcon": the audio equivalent of an icon.
+* Examples:
+  * **Duolingo**: fun "ding" when you're right → triggers dopamine, boosts habit formation.
+    * 📈 30% more daily retention when sound cues are on (source: UX case studies)
+  * **Netflix**: *ta-dum* = brand signature. Users recall it instantly — enhances emotional connection.
+-->
+
+---
+layout: default
+transition: slide-left
+---
+
+# ✅ Do's & ❌ Don'ts of Audio UX
+
+| Platform   | ✅ Use Sound For...                                 | ❌ Avoid...                                    |
+| ---------- | -------------------------------------------------- | --------------------------------------------- |
+| **Mobile** | Microinteractions, confirmations, branding earcons | Autoplay media, blocking music/podcasts       |
+| **Web**    | Subtle UX sounds, async feedback                   | Tabs that autoplay 🔊, sounds with no context |
+| **TV**     | UI navigation (focus, selection), ambient bg       | Repeating sounds, no mute options             |
+| **VR**     | Spatial cues, immersion, navigation aid            | No audio = disorientation, flat experience    |
+
+<!--
+Speaker Notes:
+
+* "Sound is amazing, *when it's respectful*. Think about when and why you're adding it."
+* Emphasize giving users control — mute toggles, respecting system settings.
+-->
 
 ---
 layout: center
-class: text-center
 transition: slide-left
 ---
 
-# Write once, run everywhere
+# 🔧 The New Audio Stack in RN
 
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px]">
-  <div class="relative h-[500px]">
-    <div v-click class="absolute -left-[150px] -top-[150px] w-[850px] h-[850px] rounded-full border-2 border-[#00E8FF] bg-[#00E8FF10] flex items-center">
-      <div class="text-left pl-48 ml-[0px] -mt-[50px]">
-        <div class="font-bold text-xl mb-4 text-[#00E8FF]">Mobile Dev</div>
-        <ul class="venn-list">
-          <li class="mb-2">📱 "Native Feel"</li>
-          <li class="mb-2">✨ Accès complet: <br />capteurs, caméra, GPS...</li>
-          <li class="mb-2">🚀 Performances</li>
-          <li class="mb-2 opacity-50">🚫 1 équipe / platforme</li>
-          <li class="mb-2 opacity-50">🚫 MAJ App Store longues</li>
-        </ul>
-      </div>
-    </div>
-    <div v-click class="absolute -right-[150px] -top-[150px] w-[850px] h-[850px] rounded-full border-2 border-[#FF00F7] bg-[#FF00F710] flex items-center justify-end">
-      <div class="text-right pr-48 -mt-[50px]">
-        <div class="font-bold text-xl mb-4 text-[#FF00F7]">Web Dev</div>
-        <ul class="venn-list text-right">
-          <li class="mb-2">⚡️ Dev Rapide</li>
-          <li class="mb-2">🔄 Releases faciles</li>
-          <li class="mb-2">📦 Gros écosystème</li>
-          <li class="mb-2 opacity-50">🚫 Seulement sur navigateur</li>
-          <li class="mb-2 opacity-50">🚫 Performance et<br />features limitées</li>
-        </ul>
-      </div>
-    </div>
-    <div v-click class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] z-10">
-      <div class="text-center">
-        <div class="font-bold text-2xl mb-6 bold-gradient">React Native</div>
-        <ul class="venn-list text-left">
-          <li class="mb-3">🔥 One Code</li>
-          <li class="mb-3">🎯 Compiled Natively</li>
-          <li class="mb-3">🚀 60 FPS</li>
-          <li class="mb-3">🌈 Native Primitives</li>
-          <li class="mb-3">🔄 Releases faciles</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+## "Last year, I said RN audio was... garbage."
 
----
-layout: default
-transition: slide-left
----
+### This year? We've got **TWO** great tools.
 
-# Comment ça marche?
+<!--
+Speaker Notes:
 
-```mermaid
-graph LR
-    A[Code React Native] --> B[Metro Bundler]
-    B --> C[iOS Code: Swift, etc.]
-    B --> D[Android code: Java, etc.]
-    B --> E[Web: HTML/CSS/JS]
-    B --> I[Mac, Windows, TV, VR...]
-    C --> F[App iOS]
-    D --> G[App Android]
-    E --> H[App Web]
-
-    style A fill:#1B1B1F,stroke:#A855F7,color:#A855F7
-    style B fill:#1B1B1F,stroke:#A855F7,color:#A855F7
-    style C fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
-    style D fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
-    style E fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
-    style F fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
-    style G fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
-    style H fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
-```
-
-<div class="-mt-26">
-  <div v-click class="text-xl font-bold">Le meilleur des 2, 3... X mondes!</div>
-  <ul class="list-disc pl-4 mt-4">
-    <li v-click>Performance native</li>
-    <li v-click>Développement rapide</li>
-    <li v-click>Code partageable</li>
-  </ul>
-</div>
-
----
-layout: default
-transition: slide-left
----
-
-# De React... à Native
-
-<div class="grid grid-cols-2 gap-8 w-full">
-
-<div class="flex-1 overflow-hidden">
-
-````md magic-move {lines: true}
-```tsx {all|2-3|6-16|all}
-// WEB: Homepage.tsx component (<Homepage />)
-import React from 'react';
-
-const Homepage = () => {
-  return (
-    <div className="w-[400px] bg-[#1B1B1F] rounded-lg shadow-xl overflow-hidden p-8 flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-bold mb-2 text-white text-center">
-        Welcome to<br />
-        Odisei Play!
-      </h1>
-      <p className="text-gray-400">
-        Let's make some music! 🎵
-      </p>
-      <a className="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-200 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
-        Enter
-      </a>
-    </div>
-  );
-};
-
-export default Homepage;
-```
-
-```tsx {all|3-4|8-19|all}
-// MOBILE: Homepage.tsx React-Native component (<Homepage />)
-import React from 'react';
-import { View, Text } from 'react-native';
-import { Link } from 'expo-router';
-
-const Homepage = () => {
-  return (
-    <View className="w-[400px] bg-[#1B1B1F] rounded-lg shadow-xl overflow-hidden p-8 flex flex-col items-center justify-center">
-      <Text className="text-2xl font-bold mb-2 text-white text-center">
-        Welcome to{'
-'}
-        Odisei Play!
-      </Text>
-      <Text className="text-gray-400">
-        Let's make some music! 🎵
-      </Text>
-      <Link className="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)]" style={({ pressed }) => pressed ? 'translate-y-0.5 shadow-[0_0px_0_rgb(153,0,140)]' : '-translate-y-1 shadow-[0_6px_0_rgb(153,0,140)]'}>
-        <Text className="text-white font-bold">Enter</Text>
-      </Link>
-    </View>
-  );
-};
-
-export default Homepage;
-```
-````
-
-</div>
-
-<div class="flex">
-  <!-- Simulateur avec bordure gradient -->
-  <div class="
-    relative p-8 rounded-[2rem]
-    before:absolute before:inset-0
-    before:p-[2px] before:rounded-[2rem]
-    before:bg-gradient-to-r before:from-[#00E8FF] before:to-[#FF00F7]
-    before:content-['']
-    after:absolute after:inset-[1px]
-    after:rounded-[calc(2rem-1px)]
-    after:bg-[#1B1B1F]
-    after:content-['']
-  ">
-    <div class="relative z-10 w-[400px] bg-[#1B1B1F] rounded-lg overflow-hidden p-8 flex flex-col items-center justify-center">
-      <h1 class="text-2xl font-bold mb-2 text-white text-center">
-        Welcome to<br />Odisei Play!
-      </h1>
-      <p class="text-gray-400">
-        Let's make some music! 🎵
-      </p>
-      <button class="relative px-8 py-2 mt-6 text-xl font-bold rounded-xl bg-gradient-to-r from-[#FF00F7] via-[#FF00F7] to-[#d800d2] transition-all duration-200 -translate-y-0.5 shadow-[0_4px_0_rgb(153,0,140)] hover:-translate-y-1 hover:shadow-[0_6px_0_rgb(153,0,140)] active:translate-y-0.5 active:shadow-[0_0px_0_rgb(153,0,140)] before:absolute before:inset-0 before:bg-white before:opacity-20 before:rounded-xl before:transition-all hover:before:opacity-30 active:before:opacity-40">
-        Enter
-      </button>
-    </div>
-  </div>
-</div>
-</div>
-
----
-layout: default
-transition: slide-left
----
-
-# Construire un jeux avec React Native
-
-<div class="grid grid-cols-2 gap-8">
-  <div v-click class="relative flex-1 h-[500px] h-full">
-    <!-- Desktop Demo -->
-    <div class="absolute inset-0 flex items-center justify-center h-full">
-      <div class="relative w-[600px]">
-        <img src="/images/mbp-14_chrome.png" class="w-full" />
-        <div class="absolute top-[13.5%] left-[10.4%] right-[9.8%] bottom-[11%] overflow-hidden">
-          <video autoplay loop="false" muted playsinline class="w-full h-full object-cover">
-            <source src="/images/op-demo-desktop.mp4" type="video/mp4">
-            <img src="/images/op-demo-desktop.gif" alt="Desktop Demo" class="w-full h-full object-cover">
-          </video>
-        </div>
-      </div>
-    </div>
-    <!-- Mobile Demo -->
-    <div class="absolute top-[51%] -right-[5%] w-[250px] z-10">
-      <img src="/images/iphone-landscape.png" class="w-full z-10" />
-      <div class="absolute top-[4%] left-[2%] right-[2%] bottom-[4%] overflow-hidden rounded-[15px] z-0">
-        <video autoplay loop="false" muted playsinline class="w-full h-full object-cover">
-          <source src="/images/op-demo-mobile.mp4" type="video/mp4">
-          <img src="/images/op-demo-mobile.gif" alt="Mobile Demo" class="w-full h-full object-cover">
-        </video>
-      </div>
-    </div>
-  </div>
-  <div class="flex flex-col relative z-20">
-    <div v-click class="text-xl font-bold mb-4">L'Ecosystem React Native</div>
-    <ul class="space-y-3">
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#00E8FF]">▸</span>
-        <a target="_blank" href="https://docs.swmansion.com/react-native-reanimated/" class="hover:text-[#00E8FF]">Reanimated</a>: Animations on UI thread
-      </li>
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#00E8FF]">▸</span>
-        <a target="_blank" href="https://www.nativewind.dev/v4/overview" class="hover:text-[#00E8FF]">NativeWind</a>: Universal Tailwind CSS
-      </li>
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#00E8FF]">▸</span>
-        <a target="_blank" href="https://docs.expo.dev/router/introduction/" class="hover:text-[#00E8FF]">Expo Router</a>: File-based Navigation + SSR
-      </li>
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#00E8FF]">▸</span>
-        <a target="_blank" href="https://shopify.github.io/react-native-skia/" class="hover:text-[#00E8FF]">React Native Skia</a>: High-Performance Graphics
-      </li>
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#00E8FF]">▸</span>
-        <a target="_blank" href="https://docs.expo.dev/eas/" class="hover:text-[#00E8FF]">EAS</a>: Build & Deploy Made Easy
-      </li>
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#00E8FF]">▸</span>
-        <a target="_blank" href="https://nitro.build/" class="hover:text-[#00E8FF]">Nitro Modules</a>: Native/C++ Code Integration
-      </li>
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#00E8FF]">▸</span>
-        <a target="_blank" href="https://github.com/wcandillon/react-native-webgpu" class="hover:text-[#00E8FF]">rn-web-gpu</a>: Universal 3D with WebGPU
-      </li>
-      <li v-click class="flex items-center gap-2">
-        <span class="text-[#FF00F7]">▸</span>
-        <span class="font-bold">Audio</span>: Let's talk about audio...
-      </li>
-    </ul>
-  </div>
-</div>
+* Call back to your 2024 talk: "I said the audio in RN sucked. The community took it personally."
+* Set the stage for the two libs that fixed it.
+-->
 
 ---
 layout: center
-class: text-center
-transition: slide-up
+transition: slide-left
 ---
 
-# Plus de détails ici 👇
+# 🔍 Choosing Your Tool
 
-<div class="flex flex-col items-center max-w-lg mx-auto">
-  <div class="relative">
-    <!-- Thumbnail YouTube -->
-    <a href="https://www.youtube.com/watch?v=PGvhniTxpu4" target="_blank" class="group">
-      <img src="/images/appjs-2024.jpg" class="w-full rounded-xl transition-transform duration-300 group-hover:scale-105" />
-      <div class="mt-2 flex items-center justify-center gap-2 text-sm opacity-75 group-hover:opacity-100 group-hover:text-red">
-        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-        </svg>
-        Voir sur YouTube
-      </div>
-    </a>
-    <!-- Flèche et teaser -->
-    <div v-click class="relative mt-8">
-      <!-- Teaser -->
-      <div class="p-4 bg-[#1B1B1F] rounded-xl relative overflow-none">
-        <!-- Flèche courbe -->
-        <svg class="absolute -top-22 -left-4 w-24 h-24 text-gray-700 opacity-25 rotate-270" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <path d="M4 12h10M4 12l4-4m-4 4l4 4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <div class="text-sm text-left opacity-75">
-          <strong>Kim in 2024:</strong> "React Native is 💩 for audio!"<br/>
-          <strong>Kim in 2025:</strong> <a href="https://appjs.co/speakers/kim-chouard" target="_blank" class="text-red hover:underline">React Native + 🎵 = ❤️</a>
-        </div>
-      </div>
-    </div>
-</div>
-</div>
+| Feature     | `expo-audio`              | `react-native-audio-api`                   |
+| ----------- | ------------------------- | ------------------------------------------ |
+| Level       | High-level                | Low-level / Web Audio API                  |
+| Best For    | UI sounds, media playback | Synths, real-time DSP, low-latency control |
+| Recording   | ✅ Yes                     | 🚧 Not yet                                 |
+| Web Support | ✅ via Expo web            | ✅ via Web Audio API                        |
+| Creator     | Expo team                 | Michał Sęk @ Software Mansion              |
+
+<!--
+Speaker Notes:
+
+* Shout out to the authors!
+* Emphasize how they complement each other.
+-->
 
 ---
 layout: default
@@ -534,7 +346,6 @@ transition: slide-left
       <div class="absolute inset-0 bg-black bg-opacity-30" />
     </div>
   </div>
-
   <div v-click class="flex flex-col">
     <div class="text-left">
 ```tsx
@@ -564,9 +375,31 @@ export default function GoatButton() {
   </div>
 </div>
 
+<!--
+Speaker Notes:
+
+* Tell your funny goat anecdote.
+* Show **original web code**, then **expo-audio version in RN**.
+* Highlight minimal code changes → universal audio!
+-->
+
 ---
-layout: default
+layout: center
 transition: slide-left
+---
+
+# 🎛 Demo #2 — Synth with `react-native-audio-api`
+
+> Explain node-based audio graph visually
+
+<!--
+Speaker Notes:
+
+* Show a **diagram** of audio nodes (oscillator → LFO → gain → speaker)
+* Explain LFO and real-time sound modulation.
+* Show partial code / link to repo.
+-->
+
 ---
 
 # L'Audio avec React Native
@@ -607,11 +440,44 @@ transition: slide-left
 
 ---
 layout: center
-class: text-center
-transition: slide-up
+transition: slide-left
+---
+# 🎵 Meloskia: The Audio Glow-Up
+> Demo "Final Tech Stack" song:
+
+* Background synth 🎹
+* Skia wave animations 🌊
+* TypeGPU sparkles ✨
+
+<!--
+Speaker Notes:
+
+* Invite audience to tap to the beat!
+* Celebrate the community: "This is what happens when we all build together."
+-->
+
+---
+layout: center
+transition: slide-left
 ---
 
-<h1 className="bold-gradient">Merci!</h1>
+# 🚀 What's Next?
+
+* 🧪 **Stabilize & contribute**: `react-native-audio-api` needs real-world feedback
+* 🎷 **Odisei Play**: From Travel Sax to **audio-to-MIDI via mic** (WASM demo ready)
+
+  * Want to help build the native engine? Let's make it *Saaaaaxy* 💋
+* 🧰 **Build a Sound/UX component library**: Imagine `@react-native-ui-sounds`
+
+<!--
+Speaker Notes:
+
+* Self plug with charm: "If you love music, React Native, and want to help musicians learn better — talk to me."
+-->
+
+---
+layout: center
+---
 
 <div class="mt-8">
   <div class="text-xl font-bold">Questions?</div>
@@ -623,3 +489,19 @@ transition: slide-up
     <a href="https://play.odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">play.odiseimusic.com</a>
   </div>
 </div> 
+
+# 🔚 Final Thoughts
+
+### "Next time you add a button…
+
+### give it a voice."
+
+> 📱 play.odiseimusic.com  |  🎮 Meloskia
+
+> 📸 Show 2 QR codes: one for Meloskia, one for Odisei Play
+
+<!--
+Speaker Notes:
+* Leave audience with inspiration + ways to connect.
+* Make the quote the last emotional hit.
+--> 
