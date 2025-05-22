@@ -176,28 +176,30 @@ transition: slide-up
 
 <audio ref="microwaveAudioRef" src="/microwave-ding.wav" preload="auto"></audio>
 <audio ref="netflixAudioRef" src="/netflix-intro.mp3" preload="auto"></audio>
-<audio ref="iphoneLockAudioRef" src="/iphone-lock.wav" preload="auto"></audio>
+<!-- <audio ref="duolingoAudioRef" src="/iphone-lock.wav" preload="auto"></audio> -->
+<audio ref="duolingoAudioRef" src="/duolingo-success-ting.m4a" preload="auto"></audio>
 
 <div class="grid grid-cols-3 gap-20 mt-12">
-  <div @click="$refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.iphoneLockAudioRef?.pause(); if($refs.iphoneLockAudioRef) $refs.iphoneLockAudioRef.currentTime = 0; $refs.microwaveAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
+  <div @click="$refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.duolingoAudioRef?.pause(); if($refs.duolingoAudioRef) $refs.duolingoAudioRef.currentTime = 0; if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.microwaveAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
     <div class="text-2xl font-bold mb-4">Sound 1</div>
     <div class="flex gap-4 mt-5 relative">
       <img v-click src="/images/microwave.png" class="w-40 h-40 absolute top-0 left-0 z-99" />
       <img src="/images/microwave.png" class="w-40 h-40 filter blur-lg" />
     </div>
   </div>
-  <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.iphoneLockAudioRef?.pause(); if($refs.iphoneLockAudioRef) $refs.iphoneLockAudioRef.currentTime = 0; $refs.netflixAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
+  <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.duolingoAudioRef?.pause(); if($refs.duolingoAudioRef) $refs.duolingoAudioRef.currentTime = 0; if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.netflixAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
     <div class="text-2xl font-bold mb-4">Sound 2</div>
     <div class="flex gap-4 mt-5 relative">
       <img v-click src="/images/Netflix_icon.svg" class="w-40 h-40 absolute top-0 left-0 z-99" />
       <img src="/images/Netflix_icon.svg" class="w-40 h-40 filter blur-xl" />
     </div>
   </div>
-  <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.iphoneLockAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
+  <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; if($refs.duolingoAudioRef) $refs.duolingoAudioRef.currentTime = 0; $refs.duolingoAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
     <div class="text-2xl font-bold mb-4">Sound 3</div>
     <div class="flex gap-4 mt-5 relative">
-      <img v-click src="/images/iphone.png" class="w-40 h-40 absolute top-0 left-0 z-99" />
-      <img src="/images/iphone.png" class="w-40 h-40 filter blur-lg" />
+      <img v-click src="/images/Duolingo-Logo.png" class="w-40 h-40 absolute top-0 left-0 z-50" />
+      <img v-click src="/images/duolingo-new-logo.png" class="w-40 h-40 absolute top-0 left-0 z-50" />
+      <img src="/images/Duolingo-Logo.png" class="w-40 h-40 filter blur-xl" />
     </div>
   </div>
 </div>
