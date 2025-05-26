@@ -213,62 +213,151 @@ Speaker Notes:
 -->
 
 ---
+layout: default
+class: text-left
+transition: slide-left
+---
+
+<audio ref="iphoneRingtoneAudioRef" src="/iphone-original-ringtone.mp3" preload="auto" />
+<audio ref="iphoneClicksAudioRef" src="/iphone-sounds.wav" preload="auto" />
+
+
+<h1 @click="$refs.iphoneClicksAudioRef.currentTime = 0; $refs.iphoneClicksAudioRef.pause(); $refs.iphoneRingtoneAudioRef?.play()">🔊 🧠 The Power of Sound</h1>
+
+<div class="flex-col gap-y-20">
+<div v-click class="text-lg">
+
+<h2  @click="$refs.iphoneRingtoneAudioRef.currentTime = 0; $refs.iphoneRingtoneAudioRef.pause(); $refs.iphoneClicksAudioRef?.play()"><strong class="bold-gradient">1. Microinteractions & Instant Feedback</strong></h2>
+
+Tiny sounds confirm actions > *feel* the interface.
+
+</div>
+<div v-click class="text-lg">
+
+## <strong class="bold-gradient">2. Ear-cons</strong>
+
+Instant brand recall > ↑20% action association, ↑30% trust & fun.
+
+</div>
+<div v-click class="text-lg">
+
+## <strong class="bold-gradient">3. Emotional Engagement & Motivation</strong>
+  - Habit formation > 📈 30% daily retention with sound.
+  - Mood setting: Calm meditation cues, game immersion.
+</div>
+</div>
+
+<!--
+Speaker Notes:
+
+* Humans process **auditory feedback faster** than visual cues. Sound also connects on a **deeper emotional level**.
+* You didn't *see* anything, but you *felt* the story. **That's the power of sound!**
+*   Start with the core assertion: "We actually process sound faster than visuals. And it hits us on a more emotional level."
+* > *(Sound FX only skit: iPhone default ringtone → message notification tone → send message swish -> a LOT of message received swishes)*
+* "And... \[call sounds] sorry... "Chérie"? Shit, not the right time honey. (mimicate hanging up). \[text sound] Excuse me, my baby is at home and... \[send swish] my bad. \[multiple receive swiches] (face become shocked) oh shit.
+* I was kidding, this was all fake. I'm not texting anybody.
+*  You didn't *see* anything, but I bet you could *picture* the whole scenario, maybe even *feel* a bit of the stress or urgency. That's the raw power of sound in storytelling and UX."
+*   Click to reveal the first set of bullet points.
+*   "So, why does this matter for our apps?"
+*   **Microinteractions**: "Think about those tiny sounds – a toggle click, a message swoosh. They make the interface feel tangible, responsive. Our brains get that confirmation quicker through sound. Error sounds: Often faster than visual popups."
+*   **Sonic Branding**: "Then there's sonic branding. Netflix's 'ta-dum' – you hear it, you know what's coming. It's like a logo for your ears – an 'earcon'. Or the sound of your mac startup. It's part of the experience. Studies show custom sounds significantly boost brand recall and user trust compared to generic OS tones. It's a worthwhile investment."
+*   **Emotional Engagement**: "And the big one: emotion. Duolingo's little 'ding' for a correct answer? That's a dopamine hit. It makes you want to keep going. They've seen a 30% increase in daily retention when sound cues are on. Sound can set a mood, create immersion in games, or gently guide a user through a meditation app."
+*   "Sound is the UX glue. It provides feedback, conveys brand, and enriches interactions, often subconsciously. It can elevate an app from good to unforgettable."
+-->
+
+---
 layout: center
 class: text-center
 transition: slide-left
 ---
 
-# 🔊 The Power of Sound 
+<h1 class="text-center text-white">Sound is the <strong class="bold-gradient">GLUE</strong> of your UX Design</h1>
 
+<img v-click src="/images/salt-bae.gif" class="text-center" />
 
-> *(Sound FX only skit: iPhone default ringtone → message notification tone → then send message swish -> then a LOT of message received swish)*
+---
+layout: default
+class: text-left
+transition: slide-left
+---
+
+# ✅ Good Audio Design Patterns
+
+<div grid="~ cols-2 gap-8">
+<div>
+
+<h3 class="text-xl font-bold mb-3 text-[#00E8FF]">Event-Driven Sounds:</h3>
+<ul class="space-y-2 list-none">
+  <li v-click><span class="text-green-400 mr-1">✓</span> <strong>Microinteractions & Feedback:</strong> Confirm actions, make UI feel tangible.</li>
+  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Sync with Visuals:</strong> Align sounds with animations (Reanimated) & graphics (Skia).</li>
+  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Rhythm & Pace:</strong> Use timing in sound sequences for satisfying interactions.</li>
+  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Subtlety:</strong> Short, soft, meaningful sounds. Less is more.</li>
+  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Clarity & Consistency:</strong> Predictable purpose for each sound.</li>
+</ul>
+
+</div>
+<div>
+
+<h3 class="text-xl font-bold mb-3 text-[#FF00F7]">Ambient Audio:</h3>
+<ul class="space-y-2 list-none">
+  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Layer & Balance:</strong> Mix backgrounds with event sounds; duck ambient for event clarity.</li>
+  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Smooth Transitions:</strong> Crossfade sequential audio (tracks, scenes).</li>
+  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Interactive & Generative:</strong> Explore sounds that react to users or are algorithmically created.</li>
+</ul>
+
+</div>
+</div>
+
+<div v-click class="mt-6 p-3 bg-green-900 bg-opacity-30 rounded-md text-center">
+  <span class="text-green-300 font-bold">UNIVERSAL TRUTH:</span> Empower Users! (Mute options, respect silent modes)
+</div>
 
 <!--
 Speaker Notes:
 
-* "And... \[call sounds] sorry... "Chérie"? Shit, not the right time honey. (mimicate hanging up). \[text sound] Excuse me, my baby is at home and... \[send swish] my bad. \[multiple receive swiches] (face become shocked) oh shit. I was kidding, this was all fake. I'm not texting anybody.
-* All sound cues — no visuals. Builds curiosity.
-* Punchline: *"You didn't see anything, but just by hearing it you could "picture" the whole story. That's the power of sound!"*
+* "Alright, let's dive into some good patterns for audio design, broken down by how you might use sound."
+* **Event-Driven Sounds**: "These are your immediate feedback sounds, tied to specific actions."
+    * "**Microinteractions**: Think clicks, toggles, send confirmations. These make your UI feel alive and responsive."
+    * "**Sync with Visuals**: Use Reanimated or Skia to make sounds and visuals dance together. An animation that pings? A graph that visualizes audio? Super immersive."
+    * "**Rhythm and Pace**: Just like music, a good rhythm in your UI sounds can make interactions feel more natural and satisfying. Think of a sequence of sounds for a multi-step process."
+    * "**Subtlety**: Event sounds should be like good seasoning – noticeable but not overpowering. Short, soft, and meaningful."
+    * "**Clarity and Consistency**: Users should learn what a sound means. Use the same sound for the same type of action."
+* **Ambient Audio**: "This is about setting a mood or an environment."
+    * "**Layer and Balance**: You can create rich atmospheres by layering ambient sounds – like rain and occasional thunder. But if an event sound plays, make sure the ambient sound ducks (gets quieter) so it doesn't become a mess."
+    * "**Smooth Transitions**: If you're changing background music or ambient scenes, crossfade them. No abrupt stops and starts."
+    * "**Interactive and Generative**: This is where it gets really cool. Sounds that change based on what the user is doing, or an infinitely generating, non-looping soundscape for a meditation app. This makes the experience feel dynamic."
+* **Universal Truth (v-click reveal)**: "And the golden rule, no matter what kind of sound: **Empower your users**. Mute buttons, respecting silent mode – these are absolute musts."
 -->
 
 ---
 layout: default
+class: text-left
 transition: slide-left
 ---
 
+# <span class="text-red-500">❌ Common Audio UX Traps</span>
 
-# 🧠 Why Sound Matters
-
-## 👂 Earcons, Emotions & Engagement
-
-<!--
-Speaker Notes:
-* Define "Earcon": the audio equivalent of an icon.
-* Examples:
-  * **Duolingo**: fun "ding" when you're right → triggers dopamine, boosts habit formation.
-    * 📈 30% more daily retention when sound cues are on (source: UX case studies)
-  * **Netflix**: *ta-dum* = brand signature. Users recall it instantly — enhances emotional connection.
--->
-
----
-layout: default
-transition: slide-left
----
-
-# ✅ Do's & ❌ Don'ts of Audio UX
-
-| Platform   | ✅ Use Sound For...                                 | ❌ Avoid...                                    |
-| ---------- | -------------------------------------------------- | --------------------------------------------- |
-| **Mobile** | Microinteractions, confirmations, branding earcons | Autoplay media, blocking music/podcasts       |
-| **Web**    | Subtle UX sounds, async feedback                   | Tabs that autoplay 🔊, sounds with no context |
-| **TV**     | UI navigation (focus, selection), ambient bg       | Repeating sounds, no mute options             |
-| **VR**     | Spatial cues, immersion, navigation aid            | No audio = disorientation, flat experience    |
+<ul class="space-y-3 text-lg mt-6 list-none">
+  <li v-click><span class="text-red-400 mr-2">✗</span><strong>No Unwanted Autoplay:</strong> Respect the user's current audio environment. Don't be that Chrome tab!</li>
+  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Clutter & Repetition:</strong> Don't overwhelm. Too many, too loud, or annoying repetitive sounds create noise, not UX.</li>
+  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Audio Hijacking:</strong> Don't stop user's music/podcasts for non-critical sounds. Let them control their audio.</li>
+  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Ignoring Context:</strong> Sounds appropriate for a game (💣💥) are likely wrong for a productivity app.</li>
+  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Accessibility Oversights:</strong> Sound should not be the *only* cue for critical information. Provide visual alternatives.</li>
+  <li v-click><span class="text-red-400 mr-2">✗</span><strong>The Mystery Noise:</strong> Sounds without a clear purpose or user context just cause confusion.</li>
+</ul>
 
 <!--
 Speaker Notes:
 
-* "Sound is amazing, *when it's respectful*. Think about when and why you're adding it."
-* Emphasize giving users control — mute toggles, respecting system settings.
+* "Now, let's talk about what NOT to do. These are the common traps that can ruin your audio UX."
+* Click through each trap:
+    * "**No Autoplay**: Seriously, especially on the web. Nobody likes a tab that starts blaring sound unexpectedly."
+    * "**Clutter and Repetition**: More is not always better. Too many sounds, or sounds that are too loud or repeat endlessly, will just annoy your users."
+    * "**Audio Hijacking**: On mobile, this is a big one. Your app shouldn't automatically stop someone's music or podcast for a minor notification. Let the user manage their audio focus."
+    * "**Ignoring Context**: The super loud, exciting sound that works in a game will be incredibly jarring in a calm meditation app. Tailor your sounds to the app's purpose and user's expectation."
+    * "**Accessibility Oversights**: If a sound is the ONLY way a user gets a piece of critical information, you have an accessibility problem. Always provide visual or haptic alternatives."
+    * "**The Mystery Noise**: If a sound plays and the user has no idea why or what it means, it's bad UX. Sounds should be intuitive."
+* "Avoiding these traps is crucial for creating a positive and respectful audio experience."
 -->
 
 ---
@@ -278,7 +367,7 @@ transition: slide-left
 
 # 🔧 The New Audio Stack in RN
 
-## "Last year, I said RN audio was... garbage."
+## "Last year, I said RN audio was... 💩"
 
 ### This year? We've got **TWO** great tools.
 
@@ -302,7 +391,7 @@ transition: slide-left
 | Best For    | UI sounds, media playback | Synths, real-time DSP, low-latency control |
 | Recording   | ✅ Yes                     | 🚧 Not yet                                 |
 | Web Support | ✅ via Expo web            | ✅ via Web Audio API                        |
-| Creator     | Expo team                 | Michał Sęk @ Software Mansion              |
+| Main Contributor     | Alan Huges @ Expo                 | Michał Sęk @ Software Mansion              |
 
 <!--
 Speaker Notes:
@@ -312,11 +401,51 @@ Speaker Notes:
 -->
 
 ---
+
+# Audio in React Native
+
+<div class="grid grid-cols-2 gap-8">
+  <div v-click class="flex flex-col">
+    <h3 class="text-xl font-bold mb-2 text-[#00E8FF]">Simple Use Cases</h3>
+    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-2" href="https://docs.expo.dev/versions/latest/sdk/audio/" target="_blank">
+      <div class="font-bold mb-1 text-[#00E8FF]">expo-audio</div>
+      <ul class="space-y-1 text-sm">
+        <li>✨ Play sounds (effects, music)</li>
+        <li>🎙️ Record audio</li>
+        <li>🔊 Basic controls (volume, pitch)</li>
+        <li>📱 Easy cross-platform setup</li>
+      </ul>
+    </a>
+    <div class="text-xs opacity-60 italic">
+      👉 Perfect for apps with basic audio needs.
+    </div>
+    <div class="text-xs opacity-75 my-2">Brought to you by... Alan Huges @ Expo</div>
+  </div>
+
+  <div v-click class="flex flex-col">
+    <h3 class="text-xl font-bold mb-2 text-[#FF00F7]">Complex Use Cases</h3>
+    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-2" href="https://docs.swmansion.com/react-native-audio-api/" target="_blank">
+      <div class="font-bold mb-1 text-[#FF00F7]">react-native-audio-api</div>
+      <ul class="space-y-1 text-sm">
+        <li>🎹 Audio synthesis</li>
+        <li>🎛️ Audio effects (filters, delay)</li>
+        <li>⚡️ Ultra-low latency</li>
+        <li>🔄 Precise synchronization</li>
+      </ul>
+    </a>
+    <div class="text-xs opacity-60 italic">
+      For professional music apps & complex audio tasks.
+    </div>
+    <div class="text-xs opacity-75 my-2">Brought to you by... Michał Sęk @ Software Mansion</div>
+  </div>
+</div>
+
+---
 layout: default
 transition: slide-left
 ---
 
-# Un exemple simple 🐐
+# A basic example 🐐
 
 <div class="grid grid-cols-2 gap-8">
   <div v-click class="flex flex-col items-center h-[80%]">
@@ -351,7 +480,7 @@ transition: slide-left
   <div v-click class="flex flex-col">
     <div class="text-left">
 ```tsx
-// jesuisunechev.re, universellement!! 🐐💨
+// jesuisunechev.re, universally!! 🐐💨
 import { useAudioPlayer } from 'expo-audio';
 import { Image, Pressable } from 'react-native';
 
@@ -401,44 +530,6 @@ Speaker Notes:
 * Explain LFO and real-time sound modulation.
 * Show partial code / link to repo.
 -->
-
----
-
-# L'Audio avec React Native
-
-<div class="grid grid-cols-2 gap-8">
-  <div v-click class="flex flex-col">
-    <h3 class="text-xl font-bold mb-4 text-[#00E8FF]">Cas d'usage simples</h3>
-    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-4" href="https://docs.expo.dev/versions/latest/sdk/audio/" target="_blank">
-      <div class="font-bold mb-2 text-[#00E8FF]">expo-audio</div>
-      <ul class="space-y-2">
-        <li>✨ Jouer des sons (effets, musique)</li>
-        <li>🎙️ Enregistrer des sons</li>
-        <li>🔊 Contrôle basique (volume, pitch)</li>
-        <li>📱 Cross-platform facile</li>
-      </ul>
-    </a>
-    <div class="text-sm opacity-75 italic">
-      Parfait pour les apps avec des besoins audio basiques
-    </div>
-  </div>
-
-  <div v-click class="flex flex-col">
-    <h3 class="text-xl font-bold mb-4 text-[#FF00F7]">Cas d'usage avancés</h3>
-    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-4" href="https://docs.swmansion.com/react-native-audio-api/" target="_blank">
-      <div class="font-bold mb-2 text-[#FF00F7]">react-native-audio-api</div>
-      <ul class="space-y-2">
-        <li>🎹 Synthétiseur audio</li>
-        <li>🎛️ Effets audio (filtres, delay)</li>
-        <li>⚡️ Latence ultra-basse</li>
-        <li>🔄 Synchronisation précise</li>
-      </ul>
-    </a>
-    <div class="text-sm opacity-75 italic">
-      Pour les apps musicales professionnelles
-    </div>
-  </div>
-</div>
 
 ---
 layout: center
