@@ -295,8 +295,6 @@ Speaker Notes:
 * Set the stage for the two libs that fixed it.
 -->
 
-
-
 ---
 layout: default
 transition: slide-left
@@ -363,7 +361,8 @@ export default function GoatButton() {
     }}>
       <Image
         source={require('./assets/chevre.jpg')}
-        style={{ width: 400, height: 400 }}
+        className="w-full h-full"
+        contentFit="cover"
       />
     </Pressable>
   );
@@ -388,7 +387,8 @@ export default function GoatButton() {
     }}>
       <Image
         source={require('./assets/chevre.jpg')}
-        style={{ width: 400, height: 400 }}
+          className="w-full h-full"
+          contentFit="cover"
       />
     </Pressable>
   );
@@ -406,6 +406,112 @@ Speaker Notes:
 * Show **original web code**, then **expo-audio version in RN**.
 * Highlight minimal code changes → universal audio!
 -->
+
+
+---
+layout: default
+transition: slide-left
+---
+
+# Audio + Animation 🐐💨
+
+
+<div class="grid grid-cols-2 gap-8">
+  <div class="flex flex-col items-center h-[80%]">
+    <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
+    <!-- Chrome-style browser bar -->
+    <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          jesuisunechev.re
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer"
+      @click="$refs.goatSound?.play()"
+    >
+      <iframe
+        v-click="3"
+        src="http://localhost:8081/goat-reanimated-press-in"
+        width="100%"
+        height="100%"
+        class="absolute top-0 left-0 z-99"
+        no-border
+      />
+      <iframe
+        v-click.hide="3"
+        src="http://localhost:8081/goat-reanimated-press-out"
+        width="100%"
+        height="100%"
+        class="absolute top-0 left-0 z-1"
+        no-border
+      />
+    </div>
+    <h3 v-click="3" class="text-center text-white opacity-100"><strong class="bold-gradient">Timing</strong> is everything! ⏱️</h3>
+  </div>
+  <v-click at="1">
+    <div class="flex flex-col overflow-hidden">
+
+````md magic-move {lines: true}
+```tsx {all|14-15|all}
+// jesuisunechev.re, universally!! 🐐💨
+import { useAudioPlayer } from 'expo-audio';
+// (...)
+export default function GoatButton() {
+  const player = useAudioPlayer(...);
+  const meeeeh = () => { if (player.paused) player.play() else player.seekTo(0) }
+
+  return (
+    <Pressable
+      onPress={meeeeh}
+    >
+      <Image
+        source={require('./assets/chevre.jpg')}
+        className="w-full h-full active:scale-110
+        transition-transform duration-400 ease-in-out"
+        contentFit="cover"
+      />
+    </Pressable>
+  );
+}
+```
+
+```tsx {10|all}
+// jesuisunechev.re, universally!! 🐐💨
+import { useAudioPlayer } from 'expo-audio';
+// (...)
+export default function GoatButton() {
+  const player = useAudioPlayer(...);
+  const meeeeh = () => { if (player.paused) player.play() else player.seekTo(0) }
+
+  return (
+    <Pressable
+      onPressIn={meeeeh}
+    >
+      <Image
+        source={require('./assets/chevre.jpg')}
+        className="w-full h-full active:scale-110
+        transition-transform duration-400 ease-in-out"
+        contentFit="cover"
+      />
+    </Pressable>
+  );
+}
+```
+````
+  </div>
+  </v-click>
+</div>
+
 
 ---
 
