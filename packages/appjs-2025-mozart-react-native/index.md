@@ -275,101 +275,18 @@ transition: slide-left
 
 <img v-click src="/images/salt-bae.gif" class="text-center" />
 
----
-layout: default
-class: text-left
-transition: slide-left
----
-
-# ✅ Good Audio Design Patterns
-
-<div grid="~ cols-2 gap-8">
-<div>
-
-<h3 class="text-xl font-bold mb-3 text-[#00E8FF]">Event-Driven Sounds:</h3>
-<ul class="space-y-2 list-none">
-  <li v-click><span class="text-green-400 mr-1">✓</span> <strong>Microinteractions & Feedback:</strong> Confirm actions, make UI feel tangible.</li>
-  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Sync with Visuals:</strong> Align sounds with animations (Reanimated) & graphics (Skia).</li>
-  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Rhythm & Pace:</strong> Use timing in sound sequences for satisfying interactions.</li>
-  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Subtlety:</strong> Short, soft, meaningful sounds. Less is more.</li>
-  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Clarity & Consistency:</strong> Predictable purpose for each sound.</li>
-</ul>
-
-</div>
-<div>
-
-<h3 class="text-xl font-bold mb-3 text-[#FF00F7]">Ambient Audio:</h3>
-<ul class="space-y-2 list-none">
-  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Layer & Balance:</strong> Mix backgrounds with event sounds; duck ambient for event clarity.</li>
-  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Smooth Transitions:</strong> Crossfade sequential audio (tracks, scenes).</li>
-  <li v-click><span class="text-green-400 mr-1">✓</span><strong>Interactive & Generative:</strong> Explore sounds that react to users or are algorithmically created.</li>
-</ul>
-
-</div>
-</div>
-
-<div v-click class="mt-6 p-3 bg-green-900 bg-opacity-30 rounded-md text-center">
-  <span class="text-green-300 font-bold">UNIVERSAL TRUTH:</span> Empower Users! (Mute options, respect silent modes)
-</div>
-
-<!--
-Speaker Notes:
-
-* "Alright, let's dive into some good patterns for audio design, broken down by how you might use sound."
-* **Event-Driven Sounds**: "These are your immediate feedback sounds, tied to specific actions."
-    * "**Microinteractions**: Think clicks, toggles, send confirmations. These make your UI feel alive and responsive."
-    * "**Sync with Visuals**: Use Reanimated or Skia to make sounds and visuals dance together. An animation that pings? A graph that visualizes audio? Super immersive."
-    * "**Rhythm and Pace**: Just like music, a good rhythm in your UI sounds can make interactions feel more natural and satisfying. Think of a sequence of sounds for a multi-step process."
-    * "**Subtlety**: Event sounds should be like good seasoning – noticeable but not overpowering. Short, soft, and meaningful."
-    * "**Clarity and Consistency**: Users should learn what a sound means. Use the same sound for the same type of action."
-* **Ambient Audio**: "This is about setting a mood or an environment."
-    * "**Layer and Balance**: You can create rich atmospheres by layering ambient sounds – like rain and occasional thunder. But if an event sound plays, make sure the ambient sound ducks (gets quieter) so it doesn't become a mess."
-    * "**Smooth Transitions**: If you're changing background music or ambient scenes, crossfade them. No abrupt stops and starts."
-    * "**Interactive and Generative**: This is where it gets really cool. Sounds that change based on what the user is doing, or an infinitely generating, non-looping soundscape for a meditation app. This makes the experience feel dynamic."
-* **Universal Truth (v-click reveal)**: "And the golden rule, no matter what kind of sound: **Empower your users**. Mute buttons, respecting silent mode – these are absolute musts."
--->
-
----
-layout: default
-class: text-left
-transition: slide-left
----
-
-# <span class="text-red-500">❌ Common Audio UX Traps</span>
-
-<ul class="space-y-3 text-lg mt-6 list-none">
-  <li v-click><span class="text-red-400 mr-2">✗</span><strong>No Unwanted Autoplay:</strong> Respect the user's current audio environment. Don't be that Chrome tab!</li>
-  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Clutter & Repetition:</strong> Don't overwhelm. Too many, too loud, or annoying repetitive sounds create noise, not UX.</li>
-  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Audio Hijacking:</strong> Don't stop user's music/podcasts for non-critical sounds. Let them control their audio.</li>
-  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Ignoring Context:</strong> Sounds appropriate for a game (💣💥) are likely wrong for a productivity app.</li>
-  <li v-click><span class="text-red-400 mr-2">✗</span><strong>Accessibility Oversights:</strong> Sound should not be the *only* cue for critical information. Provide visual alternatives.</li>
-  <li v-click><span class="text-red-400 mr-2">✗</span><strong>The Mystery Noise:</strong> Sounds without a clear purpose or user context just cause confusion.</li>
-</ul>
-
-<!--
-Speaker Notes:
-
-* "Now, let's talk about what NOT to do. These are the common traps that can ruin your audio UX."
-* Click through each trap:
-    * "**No Autoplay**: Seriously, especially on the web. Nobody likes a tab that starts blaring sound unexpectedly."
-    * "**Clutter and Repetition**: More is not always better. Too many sounds, or sounds that are too loud or repeat endlessly, will just annoy your users."
-    * "**Audio Hijacking**: On mobile, this is a big one. Your app shouldn't automatically stop someone's music or podcast for a minor notification. Let the user manage their audio focus."
-    * "**Ignoring Context**: The super loud, exciting sound that works in a game will be incredibly jarring in a calm meditation app. Tailor your sounds to the app's purpose and user's expectation."
-    * "**Accessibility Oversights**: If a sound is the ONLY way a user gets a piece of critical information, you have an accessibility problem. Always provide visual or haptic alternatives."
-    * "**The Mystery Noise**: If a sound plays and the user has no idea why or what it means, it's bad UX. Sounds should be intuitive."
-* "Avoiding these traps is crucial for creating a positive and respectful audio experience."
--->
 
 ---
 layout: center
 transition: slide-left
 ---
 
-# 🔧 The New Audio Stack in RN
+# React Native + Audio = ...
 
-## "Last year, I said RN audio was... 💩"
+## In 2024 👇
+<img v-click src="/images/rn-audio-shit.png" class="text-center" />
 
-### This year? We've got **TWO** great tools.
+Add this: https://www.youtube.com/watch?v=S3wsCRJVUyg and a Wow meme
 
 <!--
 Speaker Notes:
@@ -378,26 +295,116 @@ Speaker Notes:
 * Set the stage for the two libs that fixed it.
 -->
 
+
+
 ---
-layout: center
+layout: default
 transition: slide-left
 ---
 
-# 🔍 Choosing Your Tool
+# A basic example 🐐
 
-| Feature     | `expo-audio`              | `react-native-audio-api`                   |
-| ----------- | ------------------------- | ------------------------------------------ |
-| Level       | High-level                | Low-level / Web Audio API                  |
-| Best For    | UI sounds, media playback | Synths, real-time DSP, low-latency control |
-| Recording   | ✅ Yes                     | 🚧 Not yet                                 |
-| Web Support | ✅ via Expo web            | ✅ via Web Audio API                        |
-| Main Contributor     | Alan Huges @ Expo                 | Michał Sęk @ Software Mansion              |
+<div class="grid grid-cols-2 gap-8">
+  <div v-click class="flex flex-col items-center h-[80%]">
+    <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
+    <!-- Chrome-style browser bar -->
+    <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          jesuisunechev.re
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer"
+      @click="$refs.goatSound?.play()"
+    >
+      <iframe
+        v-click="7"
+        src="http://localhost:8081"
+        width="100%"
+        height="100%"
+        class="absolute top-0 left-0 z-99"
+        no-border
+      />
+      <img
+        src="/images/chevre_de_verzasca.jpg"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <!-- <div class="absolute inset-0 bg-black bg-opacity-30"></div> -->
+    </div>
+  </div>
+  <v-click at="2">
+  <div class="flex flex-col">
+
+````md magic-move {lines: true}
+```tsx {all|all|2|6-9|13|all}
+// jesuisunechev.re, universally!! 🐐💨
+import { useAudioPlayer } from 'expo-audio';
+import { Image, Pressable } from 'react-native';
+
+export default function GoatButton() {
+  const player = useAudioPlayer({
+    uri: require('./assets/chevre.mp3'),
+    volume: 1.0,
+  });
+
+  return (
+    <Pressable onPress={() => {
+      player.play()
+    }}>
+      <Image
+        source={require('./assets/chevre.jpg')}
+        style={{ width: 400, height: 400 }}
+      />
+    </Pressable>
+  );
+}
+```
+
+```tsx {13-14|all}
+// jesuisunechev.re, universally!! 🐐💨
+import { useAudioPlayer } from 'expo-audio';
+import { Image, Pressable } from 'react-native';
+
+export default function GoatButton() {
+  const player = useAudioPlayer({
+    uri: require('./assets/chevre.mp3'),
+    volume: 1.0,
+  });
+
+  return (
+    <Pressable onPress={() => {
+      if (player.paused) player.play()
+      else player.seekTo(0)
+    }}>
+      <Image
+        source={require('./assets/chevre.jpg')}
+        style={{ width: 400, height: 400 }}
+      />
+    </Pressable>
+  );
+}
+```
+````
+  </div>
+  </v-click>
+</div>
 
 <!--
 Speaker Notes:
 
-* Shout out to the authors!
-* Emphasize how they complement each other.
+* Tell your funny goat anecdote.
+* Show **original web code**, then **expo-audio version in RN**.
+* Highlight minimal code changes → universal audio!
 -->
 
 ---
@@ -439,80 +446,6 @@ Speaker Notes:
     <div class="text-xs opacity-75 my-2">Brought to you by... Michał Sęk @ Software Mansion</div>
   </div>
 </div>
-
----
-layout: default
-transition: slide-left
----
-
-# A basic example 🐐
-
-<div class="grid grid-cols-2 gap-8">
-  <div v-click class="flex flex-col items-center h-[80%]">
-    <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
-    <!-- Chrome-style browser bar -->
-    <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
-      <div class="flex items-center px-4 py-2 gap-2">
-        <!-- Traffic lights -->
-        <div class="flex gap-1.5">
-          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
-          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
-          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
-        </div>
-        <!-- URL bar -->
-        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
-          <div class="w-4 h-4 text-gray-500">🔒</div>
-          jesuisunechev.re
-        </div>
-      </div>
-    </div>
-    <div
-      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer"
-      @click="$refs.goatSound?.play()"
-    >
-      <img
-        src="/images/chevre_de_verzasca.jpg"
-        class="absolute inset-0 w-full h-full object-cover"
-      />
-      <div class="absolute inset-0 bg-black bg-opacity-30" />
-    </div>
-  </div>
-  <div v-click class="flex flex-col">
-    <div class="text-left">
-```tsx
-// jesuisunechev.re, universally!! 🐐💨
-import { useAudioPlayer } from 'expo-audio';
-import { Image, Pressable } from 'react-native';
-
-export default function GoatButton() {
-  const player = useAudioPlayer({
-    uri: require('./assets/chevre.mp3'),
-    volume: 1.0,
-  });
-
-  return (
-    <Pressable onPress={() => {
-      player.play()
-    }}>
-      <Image
-        source={require('./assets/chevre.jpg')}
-        style={{ width: 400, height: 400 }}
-      />
-    </Pressable>
-  );
-}
-```
-    </div>
-  </div>
-</div>
-
-<!--
-Speaker Notes:
-
-* Tell your funny goat anecdote.
-* Show **original web code**, then **expo-audio version in RN**.
-* Highlight minimal code changes → universal audio!
--->
 
 ---
 layout: center
