@@ -901,7 +901,7 @@ export default function GoatMeUp() {
 
 ---
 layout: default
-transition: slide-down
+transition: slide-left
 ---
 
 # Bringing Audio back to the UI 🐐📊
@@ -995,15 +995,26 @@ Speaker Notes:
 -->
 
 ---
+layout: default
+transition: slide-down
+---
+# 🎵 [TODO] Meloskia: The Audio Glow-Up
+> Demo "Final Tech Stack" song:
+
+* Background synth 🎹
+* Skia wave animations 🌊
+* TypeGPU sparkles ✨
+
+---
 transition: slide-left
 ---
 
 # Audio in React Native
 
 <div class="grid grid-cols-2 gap-8">
-  <div v-click class="flex flex-col">
+  <div v-click="1" class="flex flex-col">
     <h3 class="text-xl font-bold mb-2 text-[#00E8FF]">Simple Use Cases</h3>
-    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-2" href="https://docs.expo.dev/versions/latest/sdk/audio/" target="_blank">
+    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl z-50" href="https://docs.expo.dev/versions/latest/sdk/audio/" target="_blank">
       <div class="font-bold mb-1 text-[#00E8FF]">expo-audio</div>
       <ul class="space-y-1 text-sm">
         <li>✨ Play sounds (effects, music)</li>
@@ -1012,15 +1023,25 @@ transition: slide-left
         <li>📱 Easy cross-platform setup</li>
       </ul>
     </a>
-    <!-- <div class="text-xs opacity-60 italic">
-      👉 Perfect for apps with basic audio needs.
-    </div> -->
-    <div class="text-xs opacity-75 my-2">Alan Hughes @ Expo</div>
+    <div v-click="2" class="p-4 pt-7 bg-[#1B1B1F] rounded-xl border-t-2 border-[#00E8FF] border-opacity-30 -mt-4 z-1">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/images/alan-hughes.jpg" class="w-10 h-10 rounded-full object-cover" />
+          <div>
+            <div class="text-sm font-semibold text-white">Alan Hughes</div>
+            <div class="text-xs text-[#00E8FF] opacity-75">Main Contributor</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center">
+          <img src="/images/expo-white.svg" class="w-12 h-12 object-contain opacity-80" />
+        </div>
+      </div>
+    </div>
   </div>
 
-  <div v-click class="flex flex-col">
+  <div v-click="3" class="flex flex-col">
     <h3 class="text-xl font-bold mb-2 text-[#FF00F7]">Complex Use Cases</h3>
-    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl mb-2" href="https://docs.swmansion.com/react-native-audio-api/" target="_blank">
+    <a class="display-block p-4 bg-[#1B1B1F] rounded-xl z-50" href="https://docs.swmansion.com/react-native-audio-api/" target="_blank">
       <div class="font-bold mb-1 text-[#FF00F7]">react-native-audio-api</div>
       <ul class="space-y-1 text-sm">
         <li>🎹 Audio synthesis</li>
@@ -1029,10 +1050,20 @@ transition: slide-left
         <li>🔄 Precise synchronization</li>
       </ul>
     </a>
-    <!-- <div class="text-xs opacity-60 italic">
-      For professional music apps & complex audio tasks.
-    </div> -->
-    <div class="text-xs opacity-75 my-2">Michał Sęk @ Software Mansion</div>
+    <div v-click="4" class="p-4 pt-7 bg-[#1B1B1F] rounded-xl border-t-2 border-[#FF00F7] border-opacity-30 -mt-4 z-1">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <img src="/images/michal-sek.jpg" class="w-10 h-10 rounded-full object-cover" />
+          <div>
+            <div class="text-sm font-semibold text-white">Michał Sęk</div>
+            <div class="text-xs text-[#FF00F7] opacity-75">Main Contributor</div>
+          </div>
+        </div>
+        <div class="flex justify-center items-center">
+          <img src="/images/swm-white.svg" class="w-12 h-12 object-contain opacity-80" />
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -1060,24 +1091,6 @@ Speaker Notes:
 * Timing: as we saw, when you trigger the sounds and look at your sounds!!
 * Context: don't take over the user's music or podcast. 
 
--->
-
----
-layout: default
-transition: slide-left
----
-# 🎵 Meloskia: The Audio Glow-Up
-> Demo "Final Tech Stack" song:
-
-* Background synth 🎹
-* Skia wave animations 🌊
-* TypeGPU sparkles ✨
-
-<!--
-Speaker Notes:
-
-* Invite audience to tap to the beat!
-* Celebrate the community: "This is what happens when we all build together."
 -->
 
 ---
