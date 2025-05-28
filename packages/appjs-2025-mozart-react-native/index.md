@@ -476,7 +476,7 @@ transition: slide-up
       @click="$refs.goatSound?.play()"
     >
       <iframe
-        v-click="3"
+        v-click="4"
         src="http://localhost:8081/goat-reanimated-press-in"
         width="100%"
         height="100%"
@@ -484,7 +484,7 @@ transition: slide-up
         no-border
       />
       <iframe
-        v-click.hide="3"
+        v-click.hide="4"
         src="http://localhost:8081/goat-reanimated-press-out"
         width="100%"
         height="100%"
@@ -512,7 +512,7 @@ transition: slide-up
     <div class="flex flex-col overflow-hidden">
 
 ````md magic-move {lines: true}
-```tsx {all|14-15|all}
+```tsx {all|14-15|all|all}
 // Syncing animation with sound
 import { useAudioPlayer } from 'expo-audio';
 // (...)
@@ -723,6 +723,7 @@ transition: slide-left
 <div class="grid grid-cols-2 gap-8">
   <div class="flex flex-col items-center h-[80%] relative">
     <div
+      v-click.hide="1"
       class="absolute top-0 left-0 w-[400px] h-[230px] overflow-hidden cursor-pointer select-none z-10"
     >
       <img
@@ -775,6 +776,8 @@ export default function GoatMeUp() {
 
   </div>
   </v-click>
+
+  TODO: add signalsmith mention
 </div>
 
 ---
@@ -901,7 +904,7 @@ export default function GoatMeUp() {
 
 ---
 layout: default
-transition: slide-left
+transition: slide-up
 ---
 
 # Bringing Audio back to the UI 🐐📊
@@ -995,15 +998,56 @@ Speaker Notes:
 -->
 
 ---
-layout: default
+layout: center
 transition: slide-down
 ---
-# 🎵 [TODO] Meloskia: The Audio Glow-Up
-> Demo "Final Tech Stack" song:
 
-* Background synth 🎹
-* Skia wave animations 🌊
-* TypeGPU sparkles ✨
+<iframe
+  no-border
+  src="https://meloskia.chouard.kim/"
+  class="absolute top-0 left-0 bottom-0 right-0 w-full h-full z-10 pt-22"
+  style="transform: scale(0.6); transform-origin: top left; width: 167%; height: 167%;"
+  height="100%"
+/>
+
+<!-- Chrome-style browser bar -->
+<div class="bg-[#1B1B1F] absolute top-0 left-0 w-full overflow-hidden border-b border-gray-700 z-99">
+  <div class="flex items-center px-3 py-2 gap-3">
+    <!-- Traffic lights -->
+    <div class="flex gap-2">
+      <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+      <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+      <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+    </div>
+    <!-- URL bar -->
+    <div class="flex-1 bg-[#2B2B2F] rounded-md px-4 py-2 text-sm text-gray-400 flex items-center gap-2">
+      <div class="w-4 h-4 text-gray-500">🔒</div>
+      https://meloskia.chouard.kim
+    </div>
+  </div>
+</div>
+  
+<!-- GitHub CTA banner -->
+<div v-click class="absolute -bottom-2 -right-2 bg-black border border-[#111] rounded-lg p-4 flex items-center gap-4 shadow-lg z-99 max-w-sm">
+  <!-- Content -->
+  <div class="flex-1">
+    <div class="text-white font-semibold text-sm mb-1 flex items-center gap-2">
+      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+      </svg>
+      View Source
+    </div>
+    <div class="text-[#7d8590] text-xs mb-3">
+      Check the GitHub repo!
+    </div>
+    <!-- QR Code -->
+    <div class="flex-shrink-0">
+      <div class="w-30 h-30 bg-white rounded-md p-1 flex items-center justify-center">
+        <img src="/images/meloskia-gh-qr.png" class="w-full h-full object-contain" />
+      </div>
+    </div>
+  </div>
+</div>
 
 ---
 transition: slide-left
@@ -1056,11 +1100,28 @@ transition: slide-left
           <img src="/images/michal-sek.jpg" class="w-10 h-10 rounded-full object-cover" />
           <div>
             <div class="text-sm font-semibold text-white">Michał Sęk</div>
-            <div class="text-xs text-[#FF00F7] opacity-75">Main Contributor</div>
+            <div class="text-xs text-[#FF00F7] opacity-75">Lib Creator</div>
           </div>
         </div>
         <div class="flex justify-center items-center">
           <img src="/images/swm-white.svg" class="w-12 h-12 object-contain opacity-80" />
+        </div>
+      </div>
+      <!-- Secondary contributors -->
+      <div class="flex-col space-y-2 mt-3 justify-between items-center">
+        <!-- Michał Dydek -->
+        <div class="flex items-center gap-3">
+          <img src="/images/michal-dydek.png" class="w-8 h-8 rounded-full object-cover" />
+          <div>
+            <div class="text-xs font-medium text-white">Michał Dydek</div>
+          </div>
+        </div>
+        <!-- Maciej Makowski -->
+        <div class="flex items-center gap-3">
+          <img src="/images/maciej.png" class="w-8 h-8 rounded-full object-cover" />
+          <div>
+            <div class="text-xs font-medium text-white">Maciej Makowski</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1121,22 +1182,76 @@ transition: slide-up
 ---
 
 <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
+<audio ref="finalTechStackSound" src="/the-final-tech-stack.mp3" preload="auto"></audio>
 
-<h1 class="text-white !mb-4">Next time you add a button…</h1>
-<h1 v-click class="bold-gradient" @click="$refs.goatSound?.play()">Give it a voice!</h1>
+<!-- <iframe
+  v-click="4"
+  no-border
+  src="https://meloskia.chouard.kim/"
+  class="absolute top-0 left-0 bottom-0 right-0 w-full h-full z-10 pt-10"
+  style="transform: scale(0.6); transform-origin: top left; width: 167%; height: 167%;"
+  height="100%"
+/> -->
 
-<div v-click class="flex abs-bl w-full pb-5">
-  <div class="flex-1">
-    <div class="text-xl font-bold">Reach out!</div>
-    <div class="mt-4">
-      <a href="mailto:kim@odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">kim@odiseimusic.com</a>
-    </div>
+<div class="absolute top-0 left-0 right-0 bottom-0 z-99">
+  <div class="relative top-35">
+    <h1 v-click="2" class="text-white !mb-4"  @click="$refs.finalTechStackSound?.play()">Next time you add a button…</h1>
+    <h1 v-click="3" class="bold-gradient" @click="$refs.goatSound?.play()">Give it a voice!</h1>
   </div>
-  <div class="flex-1">
-    <div class="text-xl font-bold">Learn the Sax 🎷🔥</div>
-    <div class="mt-4">
-      <a href="https://play.odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">play.odiseimusic.com</a>
+  <div class="flex abs-bl w-full pb-5 gap-8 justify-between items-end">
+    <!-- Contact Section -->
+    <div class="flex-1 relative flex-grow-0 ml-5">
+      <!-- Keep in touch bubble -->
+      <div class="absolute -top-19 left-3 z-10">
+        <img src="/images/keep-in-touch.svg" class="w-32 h-auto" />
+      </div>
+      <div class="bg-[#1B1B1F] rounded-xl p-6 pt-8">
+        <div class="space-y-3">
+          <!-- Email -->
+          <div class="flex items-center gap-3">
+            <div class="w-6 h-6">💌</div>
+            <a href="mailto:kim@odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">
+              kim@odiseimusic.com
+            </a>
+          </div>
+          <!-- Twitter/X -->
+          <div class="flex items-center gap-3">
+            <img src="/images/x.svg" class="w-6 h-6" />
+            <a href="https://twitter.com/kimchouard" target="_blank" class="text-blue-500 hover:underline">
+              @kimchouard
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Odisei Play Section -->
+    <div v-click="1" class="flex-1 relative flex-grow-0 mr-5">
+      <!-- Odisei Play Logo -->
+      <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 z-10 -ml-5">
+        <img src="/images/odisei-play-logo_sq.png" class="w-20 h-20 rounded-xl object-cover shadow-lg" />
+      </div>
+      <div class="flex bg-[#1B1B1F] rounded-xl p-6 pt-12 pl-18">
+        <!-- QR Code -->
+        <div class="flex-shrink-0 absolute top-5 -left-16">
+          <div class="w-28 h-28 bg-white rounded-lg flex items-center justify-center">
+            <img src="images/op-qr.png" />
+          </div>
+        </div> 
+        <!-- Content -->
+        <div class="flex-col">   
+          <div class="text-xl font-bold mb-4 text-center">Learn the Sax 🎷🔥</div>     
+          <!-- <div class="flex items-center gap-4"> 
+            <div class="text-xs text-gray-400 text-left">
+              Master the saxophone with AI-powered lessons
+            </div>
+          </div> -->
+          <div class="text-gray-300 mb-2">
+            <a href="https://play.odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">
+              play.odiseimusic.com
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<!-- </div> -->
