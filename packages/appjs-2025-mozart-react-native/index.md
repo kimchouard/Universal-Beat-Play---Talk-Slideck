@@ -183,22 +183,22 @@ transition: slide-up
   <div @click="$refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.duolingoAudioRef?.pause(); if($refs.duolingoAudioRef) $refs.duolingoAudioRef.currentTime = 0; if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.microwaveAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
     <div class="text-2xl font-bold mb-4">Sound 1</div>
     <div class="flex gap-4 mt-5 relative">
-      <img v-click src="/images/microwave.png" class="w-40 h-40 absolute top-0 left-0 z-99" />
-      <img src="/images/microwave.png" class="w-40 h-40 filter blur-lg" />
+      <img v-click src="/images/microwave.png" class="w-40 h-40 absolute top-0 left-0 z-99 pointer-events-none select-none" />
+      <img src="/images/microwave.png" class="w-40 h-40 filter blur-lg pointer-events-none select-none" />
     </div>
   </div>
   <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.duolingoAudioRef?.pause(); if($refs.duolingoAudioRef) $refs.duolingoAudioRef.currentTime = 0; if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; $refs.netflixAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
     <div class="text-2xl font-bold mb-4">Sound 2</div>
-    <div class="flex gap-4 mt-5 relative">
-      <img v-click src="/images/Netflix_icon.svg" class="w-40 h-40 absolute top-0 left-0 z-99" />
-      <img src="/images/Netflix_icon.svg" class="w-40 h-40 filter blur-xl" />
+    <div class="flex gap-4 mt-5 relative pointer-events-none select-none">
+      <img v-click src="/images/Netflix_icon.svg" class="w-40 h-40 absolute top-0 left-0 z-99 pointer-events-none select-none" />
+      <img src="/images/Netflix_icon.svg" class="w-40 h-40 filter blur-xl pointer-events-none select-none" />
     </div>
   </div>
   <div @click="$refs.microwaveAudioRef?.pause(); if($refs.microwaveAudioRef) $refs.microwaveAudioRef.currentTime = 0; $refs.netflixAudioRef?.pause(); if($refs.netflixAudioRef) $refs.netflixAudioRef.currentTime = 0; if($refs.duolingoAudioRef) $refs.duolingoAudioRef.currentTime = 0; $refs.duolingoAudioRef?.play()" class="flex flex-col items-center cursor-pointer p-2 hover:bg-white hover:bg-opacity-10 rounded-md transition-colors">
     <div class="text-2xl font-bold mb-4">Sound 3</div>
     <div class="flex gap-4 mt-5 relative">
-      <img v-click src="/images/Duolingo-Logo.png" class="w-40 h-40 absolute top-0 left-0 z-50" />
-      <img v-click src="/images/duolingo-new-logo.png" class="w-40 h-40 absolute top-0 left-0 z-50" />
+      <img v-click src="/images/Duolingo-Logo.png" class="w-40 h-40 absolute top-0 left-0 z-50 pointer-events-none select-none" />
+      <img v-click src="/images/duolingo-new-logo.png" class="w-40 h-40 absolute top-0 left-0 z-50 pointer-events-none select-none" />
       <img src="/images/Duolingo-Logo.png" class="w-40 h-40 filter blur-xl" />
     </div>
   </div>
@@ -227,7 +227,7 @@ transition: slide-left
 <div class="flex-col gap-y-20">
 <div v-click class="text-lg">
 
-<h2  @click="$refs.iphoneRingtoneAudioRef.currentTime = 0; $refs.iphoneRingtoneAudioRef.pause(); $refs.iphoneClicksAudioRef?.play()"><strong class="bold-gradient">1. Microinteractions & Instant Feedback</strong></h2>
+<h2 @click="$refs.iphoneRingtoneAudioRef.currentTime = 0; $refs.iphoneRingtoneAudioRef.pause(); $refs.iphoneClicksAudioRef?.play()"><strong class="bold-gradient">1. Microinteractions & Instant Feedback</strong></h2>
 
 Tiny sounds confirm actions > *feel* the interface.
 
@@ -273,20 +273,29 @@ transition: slide-left
 
 <h1 class="text-center text-white">Sound is the <strong class="bold-gradient">GLUE</strong> of your UX Design</h1>
 
-<img v-click src="/images/salt-bae.gif" class="text-center" />
+<div class="flex w-full justify-center">
+  <img v-click src="/images/salt-bae.gif" class="text-center flex" />
+</div>
 
 
 ---
 layout: center
-transition: slide-left
+transition: slide-down
 ---
+
+<audio ref="momentsAudioRef" src="/a-few-moments-later.mp3" preload="auto"></audio>
 
 # React Native + Audio = ...
 
-## In 2024 👇
-<img v-click src="/images/rn-audio-shit.png" class="text-center" />
+<div v-click>
+  <h2>In 2024 👇</h2>
+  <img src="/images/rn-audio-shit.png" class="text-center" />
+</div>
 
-Add this: https://www.youtube.com/watch?v=S3wsCRJVUyg and a Wow meme
+
+<div v-click class="absolute top-0 left-0 right-0 bottom-0 overflow-hidden">
+  <img class="-rotate-5" src="images/a-few-moments-later-meme.png" @click="$refs.momentsAudioRef.currentTime = 0; $refs.momentsAudioRef.pause(); $refs.momentsAudioRef?.play()" />
+</div>
 
 <!--
 Speaker Notes:
@@ -339,6 +348,7 @@ transition: slide-left
       />
       <!-- <div class="absolute inset-0 bg-black bg-opacity-30"></div> -->
     </div>
+    <h3 v-click="2" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">expo-audio</strong></h3>
   </div>
   <v-click at="2">
   <div class="flex flex-col">
@@ -349,7 +359,7 @@ transition: slide-left
 import { useAudioPlayer } from 'expo-audio';
 import { Image, Pressable } from 'react-native';
 
-export default function GoatButton() {
+export default function GoatMeUp() {
   const player = useAudioPlayer({
     uri: require('./assets/chevre.mp3'),
     volume: 1.0,
@@ -361,7 +371,7 @@ export default function GoatButton() {
     }}>
       <Image
         source={require('./assets/chevre.jpg')}
-        className="w-full h-full"
+        className="w-full h-full pointer-events-none"
         contentFit="cover"
       />
     </Pressable>
@@ -374,7 +384,7 @@ export default function GoatButton() {
 import { useAudioPlayer } from 'expo-audio';
 import { Image, Pressable } from 'react-native';
 
-export default function GoatButton() {
+export default function GoatMeUp() {
   const player = useAudioPlayer({
     uri: require('./assets/chevre.mp3'),
     volume: 1.0,
@@ -387,7 +397,7 @@ export default function GoatButton() {
     }}>
       <Image
         source={require('./assets/chevre.jpg')}
-          className="w-full h-full"
+          className="w-full h-full pointer-events-none"
           contentFit="cover"
       />
     </Pressable>
@@ -410,7 +420,7 @@ Speaker Notes:
 
 ---
 layout: default
-transition: slide-left
+transition: slide-up
 ---
 
 # Audio + Animation 🐐💨
@@ -418,7 +428,6 @@ transition: slide-left
 
 <div class="grid grid-cols-2 gap-8">
   <div class="flex flex-col items-center h-[80%]">
-    <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
     <!-- Chrome-style browser bar -->
     <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
       <div class="flex items-center px-4 py-2 gap-2">
@@ -456,6 +465,7 @@ transition: slide-left
         no-border
       />
     </div>
+    <h3 v-click="[1,3]" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">NativeWind</strong> & <strong class="bold-gradient">Reanimated</strong></h3>
     <h3 v-click="3" class="text-center text-white opacity-100"><strong class="bold-gradient">Timing</strong> is everything! ⏱️</h3>
   </div>
   <v-click at="1">
@@ -463,11 +473,11 @@ transition: slide-left
 
 ````md magic-move {lines: true}
 ```tsx {all|14-15|all}
-// jesuisunechev.re, universally!! 🐐💨
+// Syncing animation with sound
 import { useAudioPlayer } from 'expo-audio';
 // (...)
-export default function GoatButton() {
-  const player = useAudioPlayer(...);
+export default function GoatMeUp() {
+
   const meeeeh = () => { if (player.paused) player.play() else player.seekTo(0) }
 
   return (
@@ -476,7 +486,7 @@ export default function GoatButton() {
     >
       <Image
         source={require('./assets/chevre.jpg')}
-        className="w-full h-full active:scale-110
+        className="(...) active:scale-110
         transition-transform duration-400 ease-in-out"
         contentFit="cover"
       />
@@ -486,10 +496,10 @@ export default function GoatButton() {
 ```
 
 ```tsx {10|all}
-// jesuisunechev.re, universally!! 🐐💨
+// Syncing animation with sound
 import { useAudioPlayer } from 'expo-audio';
 // (...)
-export default function GoatButton() {
+export default function GoatMeUp() {
   const player = useAudioPlayer(...);
   const meeeeh = () => { if (player.paused) player.play() else player.seekTo(0) }
 
@@ -499,7 +509,7 @@ export default function GoatButton() {
     >
       <Image
         source={require('./assets/chevre.jpg')}
-        className="w-full h-full active:scale-110
+        className="(...) active:scale-110
         transition-transform duration-400 ease-in-out"
         contentFit="cover"
       />
@@ -512,7 +522,396 @@ export default function GoatButton() {
   </v-click>
 </div>
 
+---
+layout: center  
+transition: slide-left
+---
 
+<h1 class="text-center">Performant code is <strong class="bold-gradient">NOT</strong> enough</h1>
+
+<p v-click class="text-center">You're triggering sound <strong>on time</strong>... but you're still late 👀</p>
+
+<img v-click src="images/goat-audio-waveforms.png" class="mt-4" />
+
+
+---
+layout: default
+transition: slide-down
+---
+
+# Spice up the Audio 🌶️ 🐐
+
+<h2 v-click>Using <code>react-native-audio-api</code></h2>
+<h2 v-click class="mt-4 mb-10">👉 Based on the Web Audio API: <code>node-based</code> approach</h2>
+
+<div v-click class="flex w-full items-center justify-center">
+<div class="flex-1">
+
+```mermaid
+graph LR
+    C1(📄 Audio File) --> C2((Buffer Source))
+    C2 --> C3((🎚️ Gain Node))
+    C3 --> C4{🔈 Output}
+
+    style C1 fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
+    style C2 fill:#1B1B1F,stroke:#ddd,color:#ddd
+    style C3 fill:#1B1B1F,stroke:#ddd,color:#ddd
+    style C4 fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+```
+</div>
+</div>
+
+<!-- 
+    style C1 fill:#1B1B1F,stroke:#A855F7,color:#A855F7
+    style C2 fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+    style C3 fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7 -->
+
+---
+layout: default
+transition: slide-up
+---
+
+# Spicing up the Audio 🌶️ 🐐
+
+<div class="grid grid-cols-2 gap-8">
+  <div class="flex flex-col items-center h-[80%]">
+    <!-- Chrome-style browser bar -->
+    <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          jesuisunechev.re
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer select-none"
+      @click="$refs.goatSound?.play()"
+    >
+      <iframe
+        v-click="4"
+        src="http://localhost:8081/goat-rn-audio-api-playback"
+        width="100%"
+        height="100%"
+        class="absolute top-0 left-0 z-50"
+        no-border
+      />
+      <iframe
+        v-click.hide="4"
+        src="http://localhost:8081/goat-rn-audio-api-basic"
+        width="100%"
+        height="100%"
+        class="absolute top-0 left-0 z-1"
+        no-border
+      />
+    </div>
+    <h3 v-click="1" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">react-native-audio-api</strong></h3>
+  </div>
+  <v-click at="1">
+    <div class="flex flex-col overflow-hidden">
+
+````md magic-move {lines: true}
+```tsx {all|3-11|13-20|all}
+export default function GoatMeUp() {
+  // (...)
+  useEffect(() => {
+    audioContextRef.current = new AudioContext();
+    const soundRes = await fetch(require('./assets/chevre.mp3'));
+    const arrayBuffer = await response.arrayBuffer();
+    audioContextRef.current.decodeAudioData(arrayBuffer)
+      .then((decodedBuffer) => {
+        audioBufferRef.current = decodedBuffer;
+      })
+  });
+  // (...)
+  const meeeeh = () => {
+    // (+ stop old playerNode)
+    const playerNode = await audioContext
+      .createBufferSource();
+    playerNode.buffer = audioBuffer;
+    playerNode.connect(audioContext.destination);
+    playerNode.start();
+  }
+  // (...)
+}
+```
+
+```tsx {6-7|all}
+export default function GoatMeUp() {
+  // (...)
+  const panGesture = Gesture.Pan()
+    .onUpdate((event) => {
+      // (...)
+      playerNodeRef.current.playbackRate.value = 
+        calculatePlaybackRate(event.x, containerWidth);
+      // (...)
+    });
+  // (...)
+}
+```
+
+````
+  </div>
+  </v-click>
+</div>
+
+---
+layout: default
+transition: slide-left
+---
+
+# 🗣️ Speed VS Pitch
+
+<div class="grid grid-cols-2 gap-8">
+  <div class="flex flex-col items-center h-[80%] relative">
+    <div
+      class="absolute top-0 left-0 w-[400px] h-[230px] overflow-hidden cursor-pointer select-none z-10"
+    >
+      <img
+        src="/images/op-overtheshoulder.jpg"
+        class="absolute inset-0 w-full h-full object-contain"
+      />
+    </div>
+    <!-- Chrome-style browser bar -->
+    <div v-click="1" class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2 z-99">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          play.odiseimusic.com
+        </div>
+      </div>
+    </div>
+    <div
+      v-click="1"
+      class="relative w-[400px] h-[230px] overflow-hidden cursor-pointer select-none z-99"
+    >
+      <img
+        src="/images/op-demo-mobile.gif"
+        class="absolute inset-0 w-full h-full object-contain"
+      />
+    </div>
+    <!-- <h3 v-click="1" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">react-native-audio-api</strong></h3> -->
+  </div>
+  <v-click at="2">
+    <div class="flex flex-col overflow-hidden">
+
+```tsx {all|all|6|all}
+export default function GoatMeUp() {
+  // (...)
+  const meeeeh = () => {
+    const playerNode = await audioContext
+      .createBufferSource({
+        pitchCorrection: true,
+      });
+    // (...)
+  }
+  // (...)
+}
+```
+
+  </div>
+  </v-click>
+</div>
+
+---
+layout: default
+transition: slide-down
+---
+
+# Getting Musical 🐐🎶
+
+<div class="flex w-full items-center justify-center relative">
+<div v-click.hide="1" class="flex-1">
+
+```mermaid
+graph LR
+    C1(📄 Audio File) --> C2((Buffer Source))
+    C2 --> C3((🎚️ Gain Node))
+    C3 --> C4{🔈 Output}
+
+    style C1 fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
+    style C2 fill:#1B1B1F,stroke:#ddd,color:#ddd
+    style C3 fill:#1B1B1F,stroke:#ddd,color:#ddd
+    style C4 fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+```
+</div>
+
+
+<div v-click class="absolute top-0 left-0 w-full">
+
+```mermaid
+graph LR
+    C1(📄 Audio File) --> C2((Buffer Source))
+    C2 --> C3((🎚️ Gain Node))
+    C3 --> C4{🔈 Output}
+
+    %% LFO Chain for Tremolo
+    T4(OscillatorNode<br/>🌊 LFO Sine Wave<br/><i>0.1-20 Hz</i>) --> T5(GainNode<br/>📈 LFO Depth Control<br/><i>0-100%</i>)
+    T5 -.->|Modulates| C3
+
+    style C1 fill:#1B1B1F,stroke:#FF00F7,color:#FF00F7
+    style C2 fill:#1B1B1F,stroke:#ddd,color:#ddd
+    style C3 fill:#1B1B1F,stroke:#ddd,color:#ddd
+    style C4 fill:#1B1B1F,stroke:#00E8FF,color:#00E8FF
+    style T4 fill:#1B1B1F,stroke:#A855F7,color:#A855F7
+    style T5 fill:#1B1B1F,stroke:#A855F7,color:#A855F7
+```
+</div>
+</div>
+
+
+
+---
+layout: default
+transition: slide-left
+---
+
+# Getting Musical 🐐🎶
+
+<div class="grid grid-cols-2 gap-8">
+  <div class="flex flex-col items-center h-[80%]">
+    <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
+    <!-- Chrome-style browser bar -->
+    <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          jesuisunechev.re
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer select-none"
+    >
+      <iframe
+        src="http://localhost:8081/goat-rn-audio-api-playback-and-effects"
+        width="100%"
+        height="100%"
+        class="absolute top-0 left-0 z-1"
+        no-border
+      />
+    </div>
+  </div>
+  <!-- <v-click at="1"> -->
+  <div class="flex flex-col overflow-hidden">
+
+```tsx {all|5-10|all}
+export default function GoatMeUp() {
+  // (...)
+  const meeeeh = () => {
+    // (...)
+    const lfoNode = audioContext.createOscillator();
+    lfoNode.type = 'sine';
+    const lfoGain = audioContext.createGain();
+    // (...)
+    lfoNode.connect(lfoGain);
+    lfoGain.connect(mainGain.gain);
+    // (...)
+  }
+  // (...)
+}
+```
+
+  </div>
+<!-- </v-click> -->
+</div>
+
+---
+layout: default
+transition: slide-down
+---
+
+# Bringing Audio back to the UI 🐐📊
+
+<div class="grid grid-cols-2 gap-8">
+  <div class="flex flex-col items-center h-[80%]">
+    <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
+    <!-- Chrome-style browser bar -->
+    <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          jesuisunechev.re
+        </div>
+      </div>
+    </div>
+    <div
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer select-none"
+      @click="$refs.goatSound?.play()"
+    >
+      <iframe
+        src="http://localhost:8081/goat-rn-audio-api-sound-graph"
+        width="100%"
+        height="100%"
+        class="absolute top-0 left-0 z-1"
+        no-border
+      />
+    </div>
+  </div>
+  <v-click at="1">
+    <div class="flex flex-col overflow-hidden">
+
+````md magic-move {lines: true}
+```tsx {6|all}
+export default function GoatMeUp() {
+  // (...)
+  const meeeeh = () => {
+    const playerNode = await audioContext
+      .createBufferSource({
+        pitchCorrection: true,
+      });
+    // (...)
+  }
+  // (...)
+}
+```
+
+````
+  </div>
+  </v-click>
+</div>
+
+<!--
+Speaker Notes:
+
+* Now, you might be tired of hearing Goat sounds, and trust me, I feel you. My wife that was next to me as I prepared some of this hearing goat sound in loop probably think this conference is just a joke
+* In the intro I told you that there is 2 big families of sound: the interaction based, short and snappy ; and the more contextual / scene setting one. 
+* => So let's see if we can set the stage here to feel like we're in the mountain area of France. And I want to show you that it's not just about hearing the sounds, but it also can feed back into the UI world. 
+* [demo of the sound waves: 1 as bars on top + Skia integration to "mask" the image]
+* !! => talk about how to use this in AI apps, etc.
+
+-->
+
+---
+transition: slide-left
 ---
 
 # Audio in React Native
@@ -555,23 +954,32 @@ export default function GoatButton() {
 
 ---
 layout: center
-transition: slide-left
+class: text-left
+transition: slide-up
 ---
 
-# 🎛 Demo #2 — Synth with `react-native-audio-api`
+# <span class="text-green-500">Audio UX Good Practice 👌</span>
 
-> Explain node-based audio graph visually
+<div class="space-y-6 text-lg mt-6">
+  <h2 v-click>Coherence & Simplicity</h2>
+  <h2 v-click>Timing is everything</h2>
+  <h2 v-click>Respect the user's context</h2>
+  <!-- <h2 v-click>No Unwanted Autoplay<br />
+  <span class="font-light text-gray text-lg">(don't be that Chrome tab!)</span></h2> -->
+</div>
 
 <!--
 Speaker Notes:
 
-* Show a **diagram** of audio nodes (oscillator → LFO → gain → speaker)
-* Explain LFO and real-time sound modulation.
-* Show partial code / link to repo.
+* Coherence: talk about cultural context : green vs red, bell sound perception, etc.
+* Simplicity: less is more. Use it wisely
+* Timing: as we saw, when you trigger the sounds and look at your sounds!!
+* Context: don't take over the user's music or podcast. 
+
 -->
 
 ---
-layout: center
+layout: default
 transition: slide-left
 ---
 # 🎵 Meloskia: The Audio Glow-Up
@@ -589,51 +997,49 @@ Speaker Notes:
 -->
 
 ---
-layout: center
+layout: default
 transition: slide-left
 ---
 
-# 🚀 What's Next?
+# What's Next?
 
-* 🧪 **Stabilize & contribute**: `react-native-audio-api` needs real-world feedback
-* 🎷 **Odisei Play**: From Travel Sax to **audio-to-MIDI via mic** (WASM demo ready)
-
-  * Want to help build the native engine? Let's make it *Saaaaaxy* 💋
-* 🧰 **Build a Sound/UX component library**: Imagine `@react-native-ui-sounds`
+<div class="space-y-10">
+  <h2 v-click>🚢 Let's make <code>react-native-audio-api</code> production-ready!</h2>
+  <h2 v-click>🧰 Higher level Audio libs</h2>
+  <h2 v-click>🎙️ ➡️ 🎷 We're building an <code>Audio2MIDI</code> engine for <a href="https://play.odiseimusic.com" target="_blank">Odisei Play</a><br />
+  <span v-click="4" class="text-gray block mt-2">👉 You're a RN Ninja and want to be more <em>saaaxy</em>? Let's collaborate 🕺</span></h2>
+</div>
 
 <!--
 Speaker Notes:
 
-* Self plug with charm: "If you love music, React Native, and want to help musicians learn better — talk to me."
+* Libs: 🧰 **Build a Sound/UX component library**: Imagine `@react-native-ui-sounds`
 -->
+
 
 ---
 layout: center
+class: text-center
+transition: slide-up
 ---
 
-<div class="mt-8">
-  <div class="text-xl font-bold">Questions?</div>
-  <div class="mt-4">
-    <a href="mailto:kim@odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">kim@odiseimusic.com</a>
+<audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
+
+<h1 class="text-white !mb-4">Next time you add a button…</h1>
+<h1 v-click class="bold-gradient" @click="$refs.goatSound?.play()">Give it a voice!</h1>
+
+<div v-click class="flex abs-bl w-full pb-5">
+  <div class="flex-1">
+    <div class="text-xl font-bold">Reach out!</div>
+    <div class="mt-4">
+      <a href="mailto:kim@odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">kim@odiseimusic.com</a>
+    </div>
   </div>
-  <div class="text-xl mt-8 font-bold">Envie d'apprendre le Sax? 🎷</div>
-  <div class="mt-4">
-    <a href="https://play.odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">play.odiseimusic.com</a>
+  <div class="flex-1">
+    <div class="text-xl font-bold">Learn the Sax 🎷🔥</div>
+    <div class="mt-4">
+      <a href="https://play.odiseimusic.com" target="_blank" class="text-blue-500 hover:underline">play.odiseimusic.com</a>
+    </div>
   </div>
-</div> 
-
-# 🔚 Final Thoughts
-
-### "Next time you add a button…
-
-### give it a voice."
-
-> 📱 play.odiseimusic.com  |  🎮 Meloskia
-
-> 📸 Show 2 QR codes: one for Meloskia, one for Odisei Play
-
-<!--
-Speaker Notes:
-* Leave audience with inspiration + ways to connect.
-* Make the quote the last emotional hit.
---> 
+</div>
+<!-- </div> -->
