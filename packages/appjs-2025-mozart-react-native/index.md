@@ -3,7 +3,7 @@
 theme: apple-basic # bricks
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
+# background: https://source.unsplash.com/collection/94734566/1920x1080
 # some information about your slides (markdown enabled)
 title: "Mozart Never Had React Native: You Do"
 info: |
@@ -67,12 +67,19 @@ lineNumbers: false
   font-weight: bold;
 }
 
+.text-gradient {
+  background: linear-gradient(to right, #00E8FF, #FF00F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .bold-blue {
   color: #00E8FF;
 }
 
 .slide-title, h1 {
-  color: #00E8FF;
+  color: #ddd;
+  /* color: #00E8FF; */
   font-size: 2.5rem !important;
   margin-bottom: 2rem !important;
 }
@@ -163,7 +170,7 @@ lineNumbers: false
     <div class="text-xl">App.js 2025</div> <!-- Update with actual date if known -->
     <div class="text-sm opacity-75">@Kraków, Poland</div> <!-- Update with actual venue if known -->
   </div>
-  <!-- <img src="/images/appjs-logo.svg" class="w-16 h-16" /> Placeholder, replace with actual App.js logo if available -->
+  <img src="/images/appjsconf.webp" class="w-16 h-16 rounded-lg" />
 </div>
 
 ---
@@ -219,7 +226,7 @@ transition: slide-left
 ---
 
 <audio ref="iphoneRingtoneAudioRef" src="/iphone-original-ringtone.mp3" preload="auto" />
-<audio ref="iphoneClicksAudioRef" src="/iphone-sounds.wav" preload="auto" />
+<audio ref="iphoneClicksAudioRef" src="/fake-iphone-sounds.mp3" preload="auto" />
 
 
 <h1 @click="$refs.iphoneClicksAudioRef.currentTime = 0; $refs.iphoneClicksAudioRef.pause(); $refs.iphoneRingtoneAudioRef?.play()">🔊 🧠 The Power of Sound</h1>
@@ -229,21 +236,30 @@ transition: slide-left
 
 <h2 @click="$refs.iphoneRingtoneAudioRef.currentTime = 0; $refs.iphoneRingtoneAudioRef.pause(); $refs.iphoneClicksAudioRef?.play()"><strong class="bold-gradient">1. Microinteractions & Instant Feedback</strong></h2>
 
-Tiny sounds confirm actions > *feel* the interface.
+<ul>
+  <li>Tiny sounds confirm actions > *feel* the interface.</li>
+  <li v-click="5">Habit formation > better daily retention with sound.</li>
+</ul>
 
 </div>
-<div v-click class="text-lg">
 
-## <strong class="bold-gradient">2. Ear-cons</strong>
-
-Instant brand recall > ↑20% action association, ↑30% trust & fun.
-
+<div v-click="2" />
+<div v-click="[3,4]" class="absolute top-0 left-0 right-0 bottom-0">
+  <img class="-rotate-15 scale-80 relative -top-20" src="images/troll.webp" @click="$refs.momentsAudioRef.currentTime = 0; $refs.momentsAudioRef.pause(); $refs.momentsAudioRef?.play()" />
 </div>
-<div v-click class="text-lg">
 
-## <strong class="bold-gradient">3. Emotional Engagement & Motivation</strong>
-  - Habit formation > 📈 30% daily retention with sound.
-  - Mood setting: Calm meditation cues, game immersion.
+<div v-click="6" class="text-lg">
+
+## <strong class="bold-gradient">2. Ambient Sounds</strong>
+  - Scene setting: Calm meditation cues, game immersion.
+</div>
+
+<div v-click="7" class="text-lg">
+
+## <strong class="bold-gradient">3. Ear-cons</strong>
+
+Instant brand recall > gets you into the "mood"
+
 </div>
 </div>
 
@@ -288,8 +304,8 @@ transition: slide-down
 # React Native + Audio = ...
 
 <div v-click>
-  <h2>In 2024 👇</h2>
-  <img src="/images/rn-audio-shit.png" class="text-center" />
+  <h2>Last year 👇</h2>
+  <img src="/images/rn-audio-shit.png" class="text-center mt-3" />
 </div>
 
 
@@ -312,7 +328,7 @@ transition: slide-left
 # A basic example 🐐
 
 <div class="grid grid-cols-2 gap-8">
-  <div v-click class="flex flex-col items-center h-[80%]">
+  <div v-click class="flex flex-col items-center h-[80%] relative">
     <audio ref="goatSound" src="/chevre.mp3" preload="auto"></audio>
     <!-- Chrome-style browser bar -->
     <div class="w-[400px] bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
@@ -331,24 +347,35 @@ transition: slide-left
       </div>
     </div>
     <div
-      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer"
-      @click="$refs.goatSound?.play()"
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer select-none"
     >
       <iframe
         v-click="7"
         src="http://localhost:8081"
         width="100%"
         height="100%"
-        class="absolute top-0 left-0 z-99"
+        class="absolute top-0 left-0 z-99 cursor-pointer select-none"
         no-border
       />
       <img
         src="/images/chevre_de_verzasca.jpg"
         class="absolute inset-0 w-full h-full object-cover"
+        @click="$refs.goatSound?.play()"
       />
       <!-- <div class="absolute inset-0 bg-black bg-opacity-30"></div> -->
     </div>
-    <h3 v-click="2" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">expo-audio</strong></h3>
+    <div v-click="2" class="w-[400px] bg-[#1B1B1F] rounded-b-xl overflow-hidden relative">
+      <!-- Powered by text with slide-up animation -->
+      <div class="px-4 py-3 text-center transform transition-all duration-700 ease-out translate-y-0">
+        <div class="text-sm text-white opacity-90 mb-3">
+          Powered by <strong class="text-gradient">expo-audio</strong>
+        </div>
+        <!-- iPhone-style home indicator -->
+        <div class="flex justify-center mb-2">
+          <div class="w-32 h-1 bg-white bg-opacity-30 rounded-full"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <v-click at="2">
   <div class="flex flex-col">
@@ -465,8 +492,21 @@ transition: slide-up
         no-border
       />
     </div>
-    <h3 v-click="[1,3]" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">NativeWind</strong> & <strong class="bold-gradient">Reanimated</strong></h3>
-    <h3 v-click="3" class="text-center text-white opacity-100"><strong class="bold-gradient">Timing</strong> is everything! ⏱️</h3>
+    <div v-click="1" class="w-[400px] bg-[#1B1B1F] rounded-b-xl overflow-hidden relative">
+      <!-- Powered by text with slide-up animation -->
+      <div class="px-4 py-3 text-center transform transition-all duration-700 ease-out translate-y-0 relative">
+        <div v-click-hide="3" class="text-sm text-white opacity-90 mb-3">
+          Powered by <strong class="bold-gradient">NativeWind</strong> & <strong class="bold-gradient">Reanimated</strong>
+        </div>
+        <div v-click="3" class="absolute top-3 left-0 w-full text-sm text-white opacity-90">
+          <strong class="bold-gradient">Timing</strong> is everything! ⏱️
+        </div>
+        <!-- iPhone-style home indicator -->
+        <div class="flex justify-center mb-2">
+          <div class="w-32 h-1 bg-white bg-opacity-30 rounded-full"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <v-click at="1">
     <div class="flex flex-col overflow-hidden">
@@ -612,7 +652,18 @@ transition: slide-up
         no-border
       />
     </div>
-    <h3 v-click="1" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">react-native-audio-api</strong></h3>
+    <div v-click="1" class="w-[400px] bg-[#1B1B1F] rounded-b-xl overflow-hidden relative">
+      <!-- Powered by text with slide-up animation -->
+      <div class="px-4 py-3 text-center transform transition-all duration-700 ease-out translate-y-0">
+        <div class="text-sm text-white opacity-90 mb-3">
+          Powered by <strong class="bold-gradient">react-native-audio-api</strong>
+        </div>
+        <!-- iPhone-style home indicator -->
+        <div class="flex justify-center mb-2">
+          <div class="w-32 h-1 bg-white bg-opacity-30 rounded-full"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <v-click at="1">
     <div class="flex flex-col overflow-hidden">
@@ -704,7 +755,6 @@ transition: slide-left
         class="absolute inset-0 w-full h-full object-contain"
       />
     </div>
-    <!-- <h3 v-click="1" class="text-center text-white opacity-100">Powered by <strong class="bold-gradient">react-native-audio-api</strong></h3> -->
   </div>
   <v-click at="2">
     <div class="flex flex-col overflow-hidden">
@@ -802,15 +852,27 @@ transition: slide-left
       </div>
     </div>
     <div
-      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer select-none"
+      class="relative w-[400px] h-[400px] overflow-hidden cursor-pointer select-none opacity-100"
     >
       <iframe
         src="http://localhost:8081/goat-rn-audio-api-playback-and-effects"
         width="100%"
         height="100%"
-        class="absolute top-0 left-0 z-1"
+        class="absolute top-0 left-0 z-99 opacity-100"
         no-border
       />
+    </div>
+    <div class="w-[400px] bg-[#1B1B1F] rounded-b-xl overflow-hidden relative">
+      <!-- Powered by text with slide-up animation -->
+      <div class="px-4 py-3 text-center transform transition-all duration-700 ease-out translate-y-0">
+        <div class="text-sm text-white opacity-90 mb-3">
+          Powered by <strong class="bold-gradient">react-native-audio-api</strong>
+        </div>
+        <!-- iPhone-style home indicator -->
+        <div class="flex justify-center mb-2">
+          <div class="w-32 h-1 bg-white bg-opacity-30 rounded-full"></div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- <v-click at="1"> -->
@@ -868,33 +930,55 @@ transition: slide-down
       @click="$refs.goatSound?.play()"
     >
       <iframe
-        src="http://localhost:8081/goat-rn-audio-api-sound-graph"
+        src="http://localhost:8081/goat-rn-audio-api-visual"
         width="100%"
         height="100%"
         class="absolute top-0 left-0 z-1"
         no-border
       />
     </div>
+    <div class="w-[400px] bg-[#1B1B1F] rounded-b-xl overflow-hidden relative">
+      <!-- Powered by text with slide-up animation -->
+      <div class="px-4 py-3 text-center transform transition-all duration-700 ease-out translate-y-0">
+        <div class="text-sm text-white opacity-90 mb-3">
+          Powered by <strong class="bold-gradient">react-native-audio-api</strong>
+        </div>
+        <!-- iPhone-style home indicator -->
+        <div class="flex justify-center mb-2">
+          <div class="w-32 h-1 bg-white bg-opacity-30 rounded-full"></div>
+        </div>
+      </div>
+    </div>
   </div>
   <v-click at="1">
     <div class="flex flex-col overflow-hidden">
 
-````md magic-move {lines: true}
-```tsx {6|all}
-export default function GoatMeUp() {
-  // (...)
-  const meeeeh = () => {
-    const playerNode = await audioContext
-      .createBufferSource({
-        pitchCorrection: true,
-      });
+```tsx {all|4-10|13-20|22|all}
+export default function DessineMoiUneChevre() {
+  useEffect(() => {
     // (...)
+    analyzerRef.current = audioContextRef.current
+      .createAnalyser();
+    analyzerRef.current.fftSize = FFT_SIZE;
+    analyzerRef.current.smoothingTimeConstant = 0.8;
+
+    analyzerRef.current.connect(audioContextRef.current
+      .destination);
   }
+  // (...)
+  requestAnimationFrame(() => {
+    const frequencyArrayLength = analyzerRef.current
+      .frequencyBinCount;
+
+    const freqsArray = new Uint8Array(frequencyArrayLength);
+    analyzerRef.current.getByteFrequencyData(freqsArray);
+    // (...)
+  });
+  // (...)
+  <FrequencyChart data={freqsArray} dataSize={FFT_SIZE / 2} />
   // (...)
 }
 ```
-
-````
   </div>
   </v-click>
 </div>
@@ -928,10 +1012,10 @@ transition: slide-left
         <li>📱 Easy cross-platform setup</li>
       </ul>
     </a>
-    <div class="text-xs opacity-60 italic">
+    <!-- <div class="text-xs opacity-60 italic">
       👉 Perfect for apps with basic audio needs.
-    </div>
-    <div class="text-xs opacity-75 my-2">Brought to you by... Alan Huges @ Expo</div>
+    </div> -->
+    <div class="text-xs opacity-75 my-2">Alan Hughes @ Expo</div>
   </div>
 
   <div v-click class="flex flex-col">
@@ -945,10 +1029,10 @@ transition: slide-left
         <li>🔄 Precise synchronization</li>
       </ul>
     </a>
-    <div class="text-xs opacity-60 italic">
+    <!-- <div class="text-xs opacity-60 italic">
       For professional music apps & complex audio tasks.
-    </div>
-    <div class="text-xs opacity-75 my-2">Brought to you by... Michał Sęk @ Software Mansion</div>
+    </div> -->
+    <div class="text-xs opacity-75 my-2">Michał Sęk @ Software Mansion</div>
   </div>
 </div>
 
