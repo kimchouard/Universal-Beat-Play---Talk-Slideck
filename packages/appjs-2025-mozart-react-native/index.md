@@ -707,7 +707,6 @@ export default function GoatMeUp() {
   // (...)
 }
 ```
-
 ````
   </div>
   </v-click>
@@ -773,11 +772,25 @@ export default function GoatMeUp() {
   // (...)
 }
 ```
-
+  <div v-click="3" class="-mt-3 p-4 bg-[#1B1B1F] rounded-b-xl border-l-4 border-[#A855F7]">
+    <div class="flex items-center gap-4">
+      <!-- Signalsmith Audio logo -->
+      <div class="flex-shrink-0">
+        <img src="/images/signalsmith-audio.gif" class="w-12 h-12 object-contain" />
+      </div>
+      <!-- Content -->
+      <div class="flex-1">
+        <div class="text-white font-semibold text-sm mb-1">
+          Powered by Signalsmith Audio
+        </div>
+        <div class="text-[#A855F7] text-xs opacity-75">
+          High-quality pitch correction library
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   </v-click>
-
-  TODO: add signalsmith mention
 </div>
 
 ---
@@ -1028,7 +1041,7 @@ transition: slide-down
 </div>
   
 <!-- GitHub CTA banner -->
-<div v-click class="absolute -bottom-2 -right-2 bg-black border border-[#111] rounded-lg p-4 flex items-center gap-4 shadow-lg z-99 max-w-sm">
+<div class="absolute -bottom-2 -right-2 bg-black border border-[#111] rounded-lg p-4 flex items-center gap-4 shadow-lg z-99 max-w-sm">
   <!-- Content -->
   <div class="flex-1">
     <div class="text-white font-semibold text-sm mb-1 flex items-center gap-2">
