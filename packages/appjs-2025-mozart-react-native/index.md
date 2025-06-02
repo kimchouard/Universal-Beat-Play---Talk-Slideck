@@ -584,7 +584,38 @@ transition: slide-down
 <h2 v-click>Using <code>react-native-audio-api</code></h2>
 <h2 v-click class="mt-4 mb-10">👉 Based on the Web Audio API: <code>node-based</code> approach</h2>
 
-<div v-click class="flex w-full items-center justify-center">
+<!-- Web Audio API Nodes Browser Interface -->
+<div v-click="[3,4]" class="absolute top-50 left-0 flex w-full items-center justify-center">
+  <div class="w-[70%] max-w-4xl">
+    <!-- Chrome-style browser bar -->
+    <div class="bg-[#1B1B1F] rounded-t-xl overflow-hidden border-b border-gray-700 pb-2">
+      <div class="flex items-center px-4 py-2 gap-2">
+        <!-- Traffic lights -->
+        <div class="flex gap-1.5">
+          <div class="w-3 h-3 rounded-full bg-[#FF5F57]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#28C840]"></div>
+        </div>
+        <!-- URL bar -->
+        <div class="flex-1 bg-[#2B2B2F] rounded-md px-3 py-1 text-sm text-gray-400 flex items-center gap-2">
+          <div class="w-4 h-4 text-gray-500">🔒</div>
+          github.com/gaelhugo/AudioNodeExperiment
+        </div>
+      </div>
+    </div>
+    <!-- Web Audio API Nodes Image -->
+    <div class="relative overflow-hidden rounded-b-xl bg-white">
+      <img 
+        src="/images/webAudioApiNodes.png" 
+        class="w-full h-auto object-contain"
+        alt="Web Audio API Nodes Experiment"
+      />
+    </div>
+  </div>
+</div>
+
+<!-- Original Mermaid Diagram -->
+<div v-click="4" class="flex w-full items-center justify-center">
 <div class="flex-1">
 
 ```mermaid
@@ -1208,8 +1239,8 @@ transition: slide-up
 
 <div class="absolute top-0 left-0 right-0 bottom-0 z-99">
   <div class="relative top-35">
-    <h1 v-click="2" class="text-white !mb-4"  @click="$refs.finalTechStackSound?.play()">Next time you add a button…</h1>
-    <h1 v-click="3" class="bold-gradient" @click="$refs.goatSound?.play()">Give it a voice!</h1>
+    <h1 v-click="2" class="text-white !mb-4"  @click="$refs.finalTechStackSound?.pause(); $refs.goatSound?.pause(); ">Next time you add a button…</h1>
+    <h1 v-click="3" class="bold-gradient" @click="$refs.goatSound?.pause(); if($refs.goatSound) $refs.goatSound.currentTime = 0; $refs.goatSound?.play(); $refs.finalTechStackSound?.pause(); if($refs.finalTechStackSound) $refs.finalTechStackSound.currentTime = 0; $refs.finalTechStackSound?.play()">Give it a voice!</h1>
   </div>
   <div class="flex abs-bl w-full pb-5 gap-8 justify-between items-end">
     <!-- Contact Section -->
